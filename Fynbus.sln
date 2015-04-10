@@ -1,0 +1,66 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.31101.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".Items", ".Items", "{9B3DFD69-9794-4CB1-B6BA-4BBC83917FDC}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".git", ".git", "{6B40AD08-DCEC-497C-A326-A04F48FC14D3}"
+	ProjectSection(SolutionItems) = preProject
+		.gitattributes = .gitattributes
+		.gitignore = .gitignore
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WcfServiceFynbus", "WcfServiceFynbus\WcfServiceFynbus.csproj", "{58CCCDBE-8625-4FFB-A3D7-D0BEC23A67FB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lib", "Lib\Lib.csproj", "{9EEE30F8-6B20-4677-B2DF-892433A1EF82}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".sql", ".sql", "{126C7B88-00BD-4A3D-AF9E-E1360279BD95}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Setup", "Setup", "{1682865D-B9AA-42C5-A807-D93A16E15237}"
+	ProjectSection(SolutionItems) = preProject
+		SetupV0_1.sql = SetupV0_1.sql
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Dummy data", "Dummy data", "{B1FA160B-57B3-404D-BBEC-8ABBF8B093E1}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Docs", "Docs", "{3D4073E9-4960-4A82-BDBA-1088DFD09B90}"
+	ProjectSection(SolutionItems) = preProject
+		Docs\Flextrafik_Header og eksportformat.xls = Docs\Flextrafik_Header og eksportformat.xls
+		Docs\Fynbus project.docx = Docs\Fynbus project.docx
+		Docs\MASTER daglig vedligeholdelse.xlsx = Docs\MASTER daglig vedligeholdelse.xlsx
+		Docs\MASTER original.xlsx = Docs\MASTER original.xlsx
+		Docs\Stamdata_EAL.pptx = Docs\Stamdata_EAL.pptx
+		Docs\UdbudAf_FV3.pdf = Docs\UdbudAf_FV3.pdf
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mvc4FynbusWeb", "Mvc4FynbusWeb\Mvc4FynbusWeb.csproj", "{D2F0B966-84D6-4E68-8EFB-59151FA19E9B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{58CCCDBE-8625-4FFB-A3D7-D0BEC23A67FB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{58CCCDBE-8625-4FFB-A3D7-D0BEC23A67FB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{58CCCDBE-8625-4FFB-A3D7-D0BEC23A67FB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{58CCCDBE-8625-4FFB-A3D7-D0BEC23A67FB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9EEE30F8-6B20-4677-B2DF-892433A1EF82}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9EEE30F8-6B20-4677-B2DF-892433A1EF82}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9EEE30F8-6B20-4677-B2DF-892433A1EF82}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9EEE30F8-6B20-4677-B2DF-892433A1EF82}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D2F0B966-84D6-4E68-8EFB-59151FA19E9B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D2F0B966-84D6-4E68-8EFB-59151FA19E9B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D2F0B966-84D6-4E68-8EFB-59151FA19E9B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D2F0B966-84D6-4E68-8EFB-59151FA19E9B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{1682865D-B9AA-42C5-A807-D93A16E15237} = {126C7B88-00BD-4A3D-AF9E-E1360279BD95}
+		{B1FA160B-57B3-404D-BBEC-8ABBF8B093E1} = {126C7B88-00BD-4A3D-AF9E-E1360279BD95}
+		{3D4073E9-4960-4A82-BDBA-1088DFD09B90} = {9B3DFD69-9794-4CB1-B6BA-4BBC83917FDC}
+	EndGlobalSection
+EndGlobal
