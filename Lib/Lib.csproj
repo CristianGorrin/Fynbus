@@ -30,7 +30,16 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.1\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.1\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
@@ -41,10 +50,38 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Entity Framework\BasicInformation.cs">
+      <DependentUpon>EfFynbus.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity Framework\EfFynbus.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EfFynbus.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity Framework\EfFynbus.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EfFynbus.tt</DependentUpon>
+    </Compile>
     <Compile Include="Entity Framework\EfFynbus.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>EfFynbus.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Entity Framework\HomeWagon.cs">
+      <DependentUpon>EfFynbus.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity Framework\Offersform_SingleVehicle.cs">
+      <DependentUpon>EfFynbus.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity Framework\Price.cs">
+      <DependentUpon>EfFynbus.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity Framework\PricePlan.cs">
+      <DependentUpon>EfFynbus.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity Framework\WagonDetails.cs">
+      <DependentUpon>EfFynbus.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -55,9 +92,24 @@
     </EntityDeploy>
   </ItemGroup>
   <ItemGroup>
+    <None Include="App.Config" />
+    <None Include="Entity Framework\EfFynbus.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>EfFynbus.Context.cs</LastGenOutput>
+      <DependentUpon>EfFynbus.edmx</DependentUpon>
+    </None>
     <None Include="Entity Framework\EfFynbus.edmx.diagram">
       <DependentUpon>EfFynbus.edmx</DependentUpon>
     </None>
+    <None Include="Entity Framework\EfFynbus.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>EfFynbus.cs</LastGenOutput>
+      <DependentUpon>EfFynbus.edmx</DependentUpon>
+    </None>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
