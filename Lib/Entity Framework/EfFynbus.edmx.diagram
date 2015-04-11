@@ -19,6 +19,10 @@
         <AssociationConnector Association="EfFynbus.WeekdaysEvening_FK_PricePlan" />
         <AssociationConnector Association="EfFynbus.WeekendersHelligdage_FK_PricePlan" />
         <AssociationConnector Association="EfFynbus.WagonDetails_FK_WagonDetails" />
+        <EntityTypeShape EntityType="EfFynbus.Token" Width="1.5" PointX="0.75" PointY="8.375" />
+        <EntityTypeShape EntityType="EfFynbus.Users" Width="1.5" PointX="5.25" PointY="7.75" />
+        <AssociationConnector Association="EfFynbus.OwnedBy_FK_Users_ID" />
+        <AssociationConnector Association="EfFynbus.UsersID_FK_Users_ID" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

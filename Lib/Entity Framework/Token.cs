@@ -12,18 +12,13 @@ namespace Lib.Entity_Framework
     using System;
     using System.Collections.Generic;
     
-    public partial class Offersform_SingleVehicle
+    public partial class Token
     {
         public int ID { get; set; }
-        public int BasicInformation { get; set; }
-        public int WagonDetails { get; set; }
-        public int Price { get; set; }
-        public string AdditionalInformation { get; set; }
-        public int OwnedBy { get; set; }
+        public int UsersID { get; set; }
+        public string TokenString { get; set; }
+        public System.DateTime CreateDate { get; set; }
     
-        public virtual BasicInformation BasicInformation1 { get; set; }
-        public virtual Price Price1 { get; set; }
-        public virtual WagonDetails WagonDetails1 { get; set; }
         public virtual Users Users { get; set; }
     }
 }

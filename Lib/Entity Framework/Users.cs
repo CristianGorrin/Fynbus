@@ -12,18 +12,21 @@ namespace Lib.Entity_Framework
     using System;
     using System.Collections.Generic;
     
-    public partial class Offersform_SingleVehicle
+    public partial class Users
     {
-        public int ID { get; set; }
-        public int BasicInformation { get; set; }
-        public int WagonDetails { get; set; }
-        public int Price { get; set; }
-        public string AdditionalInformation { get; set; }
-        public int OwnedBy { get; set; }
+        public Users()
+        {
+            this.Offersform_SingleVehicle = new HashSet<Offersform_SingleVehicle>();
+            this.Token = new HashSet<Token>();
+        }
     
-        public virtual BasicInformation BasicInformation1 { get; set; }
-        public virtual Price Price1 { get; set; }
-        public virtual WagonDetails WagonDetails1 { get; set; }
-        public virtual Users Users { get; set; }
+        public int ID { get; set; }
+        public string Account { get; set; }
+        public string Password { get; set; }
+        public string Email { get; set; }
+        public Nullable<byte> UsersAccessLevels { get; set; }
+    
+        public virtual ICollection<Offersform_SingleVehicle> Offersform_SingleVehicle { get; set; }
+        public virtual ICollection<Token> Token { get; set; }
     }
 }

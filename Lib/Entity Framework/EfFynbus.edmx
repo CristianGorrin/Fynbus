@@ -34,6 +34,7 @@
           <Property Name="WagonDetails" Type="int" Nullable="false" />
           <Property Name="Price" Type="int" Nullable="false" />
           <Property Name="AdditionalInformation" Type="nvarchar(max)" />
+          <Property Name="OwnedBy" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="Price">
           <Key>
@@ -53,6 +54,25 @@
           <Property Name="SetUpFee" Type="decimal" Precision="6" Scale="2" Nullable="false" />
           <Property Name="HourlyRate" Type="decimal" Precision="6" Scale="2" Nullable="false" />
           <Property Name="HourlyDdownTime" Type="decimal" Precision="6" Scale="2" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Token">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UsersID" Type="int" Nullable="false" />
+          <Property Name="TokenString" Type="nvarchar" MaxLength="450" Nullable="false" />
+          <Property Name="CreateDate" Type="date" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Users">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Account" Type="nvarchar" MaxLength="50" />
+          <Property Name="Password" Type="nvarchar" MaxLength="50" />
+          <Property Name="Email" Type="nvarchar" MaxLength="80" />
+          <Property Name="UsersAccessLevels" Type="tinyint" />
         </EntityType>
         <EntityType Name="WagonDetails">
           <Key>
@@ -101,6 +121,30 @@
             </Principal>
             <Dependent Role="Offersform_SingleVehicle">
               <PropertyRef Name="WagonDetails" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="OwnedBy_FK_Users_ID">
+          <End Role="Users" Type="Self.Users" Multiplicity="1" />
+          <End Role="Offersform_SingleVehicle" Type="Self.Offersform_SingleVehicle" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Offersform_SingleVehicle">
+              <PropertyRef Name="OwnedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="UsersID_FK_Users_ID">
+          <End Role="Users" Type="Self.Users" Multiplicity="1" />
+          <End Role="Token" Type="Self.Token" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Token">
+              <PropertyRef Name="UsersID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -170,6 +214,8 @@
           <EntitySet Name="Offersform_SingleVehicle" EntityType="Self.Offersform_SingleVehicle" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Price" EntityType="Self.Price" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="PricePlan" EntityType="Self.PricePlan" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Token" EntityType="Self.Token" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="WagonDetails" EntityType="Self.WagonDetails" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="OffersformSingleVehicle_FK_BasicInformation" Association="Self.OffersformSingleVehicle_FK_BasicInformation">
             <End Role="BasicInformation" EntitySet="BasicInformation" />
@@ -182,6 +228,14 @@
           <AssociationSet Name="OffersformSingleVehicle_FK_WagonDetails" Association="Self.OffersformSingleVehicle_FK_WagonDetails">
             <End Role="WagonDetails" EntitySet="WagonDetails" />
             <End Role="Offersform_SingleVehicle" EntitySet="Offersform_SingleVehicle" />
+          </AssociationSet>
+          <AssociationSet Name="OwnedBy_FK_Users_ID" Association="Self.OwnedBy_FK_Users_ID">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="Offersform_SingleVehicle" EntitySet="Offersform_SingleVehicle" />
+          </AssociationSet>
+          <AssociationSet Name="UsersID_FK_Users_ID" Association="Self.UsersID_FK_Users_ID">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="Token" EntitySet="Token" />
           </AssociationSet>
           <AssociationSet Name="WagonDetails_FK_HomeWagon" Association="Self.WagonDetails_FK_HomeWagon">
             <End Role="HomeWagon" EntitySet="HomeWagon" />
@@ -247,6 +301,16 @@
             <End Role="WagonDetails" EntitySet="WagonDetails" />
             <End Role="WagonDetails1" EntitySet="WagonDetails" />
           </AssociationSet>
+          <EntitySet Name="Token" EntityType="EfFynbus.Token" />
+          <EntitySet Name="Users" EntityType="EfFynbus.Users" />
+          <AssociationSet Name="OwnedBy_FK_Users_ID" Association="EfFynbus.OwnedBy_FK_Users_ID">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="Offersform_SingleVehicle" EntitySet="Offersform_SingleVehicle" />
+          </AssociationSet>
+          <AssociationSet Name="UsersID_FK_Users_ID" Association="EfFynbus.UsersID_FK_Users_ID">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="Token" EntitySet="Token" />
+          </AssociationSet>
         </EntityContainer>
         <EntityType Name="BasicInformation">
           <Key>
@@ -282,6 +346,8 @@
           <NavigationProperty Name="BasicInformation1" Relationship="EfFynbus.OffersformSingleVehicle_FK_BasicInformation" FromRole="Offersform_SingleVehicle" ToRole="BasicInformation" />
           <NavigationProperty Name="Price1" Relationship="EfFynbus.OffersformSingleVehicle_FK_Price" FromRole="Offersform_SingleVehicle" ToRole="Price" />
           <NavigationProperty Name="WagonDetails1" Relationship="EfFynbus.OffersformSingleVehicle_FK_WagonDetails" FromRole="Offersform_SingleVehicle" ToRole="WagonDetails" />
+          <Property Name="OwnedBy" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Users" Relationship="EfFynbus.OwnedBy_FK_Users_ID" FromRole="Offersform_SingleVehicle" ToRole="Users" />
         </EntityType>
         <EntityType Name="Price">
           <Key>
@@ -423,6 +489,52 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="Token">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UsersID" Type="Int32" Nullable="false" />
+          <Property Name="TokenString" Type="String" Nullable="false" MaxLength="450" FixedLength="false" Unicode="true" />
+          <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="0" />
+          <NavigationProperty Name="Users" Relationship="EfFynbus.UsersID_FK_Users_ID" FromRole="Token" ToRole="Users" />
+        </EntityType>
+        <EntityType Name="Users">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Account" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="80" FixedLength="false" Unicode="true" />
+          <Property Name="UsersAccessLevels" Type="Byte" />
+          <NavigationProperty Name="Offersform_SingleVehicle" Relationship="EfFynbus.OwnedBy_FK_Users_ID" FromRole="Users" ToRole="Offersform_SingleVehicle" />
+          <NavigationProperty Name="Token" Relationship="EfFynbus.UsersID_FK_Users_ID" FromRole="Users" ToRole="Token" />
+        </EntityType>
+        <Association Name="OwnedBy_FK_Users_ID">
+          <End Type="EfFynbus.Users" Role="Users" Multiplicity="1" />
+          <End Type="EfFynbus.Offersform_SingleVehicle" Role="Offersform_SingleVehicle" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Offersform_SingleVehicle">
+              <PropertyRef Name="OwnedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="UsersID_FK_Users_ID">
+          <End Type="EfFynbus.Users" Role="Users" Multiplicity="1" />
+          <End Type="EfFynbus.Token" Role="Token" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Token">
+              <PropertyRef Name="UsersID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -456,6 +568,7 @@
           <EntitySetMapping Name="Offersform_SingleVehicle">
             <EntityTypeMapping TypeName="EfFynbus.Offersform_SingleVehicle">
               <MappingFragment StoreEntitySet="Offersform_SingleVehicle">
+                <ScalarProperty Name="OwnedBy" ColumnName="OwnedBy" />
                 <ScalarProperty Name="AdditionalInformation" ColumnName="AdditionalInformation" />
                 <ScalarProperty Name="Price" ColumnName="Price" />
                 <ScalarProperty Name="WagonDetails" ColumnName="WagonDetails" />
@@ -496,6 +609,27 @@
                 <ScalarProperty Name="RegistrationNumbers" ColumnName="RegistrationNumbers" />
                 <ScalarProperty Name="RegistrationLetters" ColumnName="RegistrationLetters" />
                 <ScalarProperty Name="Guarantee" ColumnName="Guarantee" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Token">
+            <EntityTypeMapping TypeName="EfFynbus.Token">
+              <MappingFragment StoreEntitySet="Token">
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="TokenString" ColumnName="TokenString" />
+                <ScalarProperty Name="UsersID" ColumnName="UsersID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Users">
+            <EntityTypeMapping TypeName="EfFynbus.Users">
+              <MappingFragment StoreEntitySet="Users">
+                <ScalarProperty Name="UsersAccessLevels" ColumnName="UsersAccessLevels" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Account" ColumnName="Account" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
               </MappingFragment>
             </EntityTypeMapping>

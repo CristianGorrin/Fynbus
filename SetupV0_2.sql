@@ -10,7 +10,8 @@ ID int identity(0,1) primary key NOT NULL,
 BasicInformation int NOT NULL, --FK_BasicInformation
 WagonDetails int NOT NULL, --FK_WagonDetails
 Price int NOT NULL, --FK_Price
-AdditionalInformation nvarchar(MAX)
+AdditionalInformation nvarchar(MAX),
+OwnedBy int NOT NULL, --FK_Users_ID and INDEX_Offersform_SingleVehicle_OwnedBy
 );
 
 create table BasicInformation
@@ -61,6 +62,33 @@ HourlyRate decimal(6,2) NOT NULL,
 HourlyDdownTime decimal(6,2) NOT NULL
 );
 
+create table Users
+(
+ID int identity(0,1) primary key NOT NULL,
+Account nvarchar(50), --INDEX
+[Password] nvarchar(50),
+Email nvarchar(80),
+UsersAccessLevels tinyint
+);
+
+create table Token
+(
+ID int identity(0,1) primary key NOT NULL,
+UsersID int NOT NULL, --FK_Users_ID
+TokenString nvarchar(450) unique NOT NULL, --INDEX
+CreateDate date NOT NULL,
+);
+
+--INDEX
+create index Index_Users_Account
+on Users(Account);
+
+create index Index_Token_TokenString
+on Token(TokenString);
+
+create index INDEX_Offersform_SingleVehicle_OwnedBy
+on Offersform_SingleVehicle(OwnedBy);
+
 --Constraint
 --Foreign key
 alter table Offersform_SingleVehicle add constraint OffersformSingleVehicle_FK_BasicInformation
@@ -86,6 +114,12 @@ foreign key (WeekdaysEvening) references PricePlan(ID);
 
 alter table Price add constraint WeekendersHelligdage_FK_PricePlan
 foreign key (WeekendersHelligdage) references PricePlan(ID);
+
+alter table Token add constraint UsersID_FK_Users_ID
+foreign key (UsersID) references Users(ID);
+
+alter table Offersform_SingleVehicle add constraint OwnedBy_FK_Users_ID
+foreign key (OwnedBy) references Users(ID);
 
 --Check
 alter table WagonDetails add constraint CH_WagonDetails_RegistrationLetters
