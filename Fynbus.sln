@@ -36,6 +36,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Docs", "Docs", "{3D4073E9-4
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mvc4FynbusWeb", "Mvc4FynbusWeb\Mvc4FynbusWeb.csproj", "{D2F0B966-84D6-4E68-8EFB-59151FA19E9B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Interface", "Interface\Interface.csproj", "{EE24781A-EC58-4A66-9857-B2C67B78079C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -54,6 +56,10 @@ Global
 		{D2F0B966-84D6-4E68-8EFB-59151FA19E9B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D2F0B966-84D6-4E68-8EFB-59151FA19E9B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D2F0B966-84D6-4E68-8EFB-59151FA19E9B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EE24781A-EC58-4A66-9857-B2C67B78079C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EE24781A-EC58-4A66-9857-B2C67B78079C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EE24781A-EC58-4A66-9857-B2C67B78079C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EE24781A-EC58-4A66-9857-B2C67B78079C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
