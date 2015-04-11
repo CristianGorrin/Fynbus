@@ -21,9 +21,9 @@ namespace Lib.Entity_Framework
         public string AdditionalInformation { get; set; }
         public int OwnedBy { get; set; }
     
-        public virtual BasicInformation BasicInformation1 { get; set; }
-        public virtual Price Price1 { get; set; }
-        public virtual WagonDetails WagonDetails1 { get; set; }
-        public virtual Users Users { get; set; }
+        public virtual BasicInformation BasicInformationObj { get; set; }
+        public virtual Price PriceObj { get; set; }
+        public virtual WagonDetails WagonDetailsObj { get; set; }
+        public virtual Users UsersObj { get; set; }
     }
 }

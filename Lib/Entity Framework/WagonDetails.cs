@@ -17,7 +17,7 @@ namespace Lib.Entity_Framework
         public WagonDetails()
         {
             this.Offersform_SingleVehicle = new HashSet<Offersform_SingleVehicle>();
-            this.WagonDetails1 = new HashSet<WagonDetails>();
+            this.GuaranteeOff = new HashSet<WagonDetails>();
         }
     
         public int ID { get; set; }
@@ -29,10 +29,12 @@ namespace Lib.Entity_Framework
         public Nullable<byte> StairMachine { get; set; }
         public Nullable<byte> Highchairs { get; set; }
         public Nullable<int> HomeWagon { get; set; }
+        public int OwnedBy { get; set; }
     
         public virtual HomeWagon HomeWagon1 { get; set; }
         public virtual ICollection<Offersform_SingleVehicle> Offersform_SingleVehicle { get; set; }
-        public virtual ICollection<WagonDetails> WagonDetails1 { get; set; }
-        public virtual WagonDetails WagonDetails2 { get; set; }
+        public virtual Users Users { get; set; }
+        public virtual ICollection<WagonDetails> GuaranteeOff { get; set; }
+        public virtual WagonDetails GuaranteeBy { get; set; }
     }
 }

@@ -4,25 +4,28 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="93c00b2b372149faa6d7d0d64711d7b3" Name="Diagram1" ZoomLevel="95" >
-        <EntityTypeShape EntityType="EfFynbus.BasicInformation" Width="1.75" PointX="5.75" PointY="5" />
-        <EntityTypeShape EntityType="EfFynbus.HomeWagon" Width="1.5" PointX="0.75" PointY="1.625" />
-        <EntityTypeShape EntityType="EfFynbus.Offersform_SingleVehicle" Width="2.25" PointX="5.25" PointY="1.5" />
-        <EntityTypeShape EntityType="EfFynbus.Price" Width="1.875" PointX="2.875" PointY="5" />
-        <EntityTypeShape EntityType="EfFynbus.PricePlan" Width="1.5" PointX="0.75" PointY="5" />
-        <EntityTypeShape EntityType="EfFynbus.WagonDetails" Width="1.875" PointX="3" PointY="1" />
+      <Diagram DiagramId="93c00b2b372149faa6d7d0d64711d7b3" Name="Diagram1" ZoomLevel="91" >
+        <EntityTypeShape EntityType="EfFynbus.BasicInformation" Width="2.25" PointX="3" PointY="5" />
+        <EntityTypeShape EntityType="EfFynbus.HomeWagon" Width="1.5" PointX="8.875" PointY="5" />
+        <EntityTypeShape EntityType="EfFynbus.Offersform_SingleVehicle" Width="2.25" PointX="3" PointY="0.5" />
+        <EntityTypeShape EntityType="EfFynbus.Price" Width="2" PointX="0.625" PointY="0.5" />
+        <EntityTypeShape EntityType="EfFynbus.PricePlan" Width="2" PointX="0.625" PointY="5" />
+        <EntityTypeShape EntityType="EfFynbus.Token" Width="1.5" PointX="5.875" PointY="5" />
+        <EntityTypeShape EntityType="EfFynbus.Users" Width="2.25" PointX="5.875" PointY="0.5" />
+        <EntityTypeShape EntityType="EfFynbus.WagonDetails" Width="2.125" PointX="8.875" PointY="0.5" />
+        <AssociationConnector Association="EfFynbus.FK_OwnedBy_Users_ID" />
         <AssociationConnector Association="EfFynbus.OffersformSingleVehicle_FK_BasicInformation" />
         <AssociationConnector Association="EfFynbus.WagonDetails_FK_HomeWagon" />
         <AssociationConnector Association="EfFynbus.OffersformSingleVehicle_FK_Price" />
-        <AssociationConnector Association="EfFynbus.OffersformSingleVehicle_FK_WagonDetails" />
+        <AssociationConnector Association="EfFynbus.OffersformSingleVehicle_FK_WagonDetails" ManuallyRouted="false" >
+        </AssociationConnector>
+        <AssociationConnector Association="EfFynbus.OwnedBy_FK_Users_ID" />
         <AssociationConnector Association="EfFynbus.Weekdays_FK_PricePlan" />
         <AssociationConnector Association="EfFynbus.WeekdaysEvening_FK_PricePlan" />
         <AssociationConnector Association="EfFynbus.WeekendersHelligdage_FK_PricePlan" />
-        <AssociationConnector Association="EfFynbus.WagonDetails_FK_WagonDetails" />
-        <EntityTypeShape EntityType="EfFynbus.Token" Width="1.5" PointX="0.75" PointY="8.375" />
-        <EntityTypeShape EntityType="EfFynbus.Users" Width="1.5" PointX="5.25" PointY="7.75" />
-        <AssociationConnector Association="EfFynbus.OwnedBy_FK_Users_ID" />
         <AssociationConnector Association="EfFynbus.UsersID_FK_Users_ID" />
+        <AssociationConnector Association="EfFynbus.FK_WagonDetails_OwnedBy_Users_ID" />
+        <AssociationConnector Association="EfFynbus.WagonDetails_FK_WagonDetails" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

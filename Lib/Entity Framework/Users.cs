@@ -16,8 +16,10 @@ namespace Lib.Entity_Framework
     {
         public Users()
         {
+            this.BasicInformation = new HashSet<BasicInformation>();
             this.Offersform_SingleVehicle = new HashSet<Offersform_SingleVehicle>();
             this.Token = new HashSet<Token>();
+            this.WagonDetails = new HashSet<WagonDetails>();
         }
     
         public int ID { get; set; }
@@ -26,7 +28,9 @@ namespace Lib.Entity_Framework
         public string Email { get; set; }
         public Nullable<byte> UsersAccessLevels { get; set; }
     
+        public virtual ICollection<BasicInformation> BasicInformation { get; set; }
         public virtual ICollection<Offersform_SingleVehicle> Offersform_SingleVehicle { get; set; }
         public virtual ICollection<Token> Token { get; set; }
+        public virtual ICollection<WagonDetails> WagonDetails { get; set; }
     }
 }

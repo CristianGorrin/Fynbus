@@ -23,7 +23,9 @@ namespace Lib.Entity_Framework
         public string Name { get; set; }
         public int CVR { get; set; }
         public string NameSecondary { get; set; }
+        public int OwnedBy { get; set; }
     
+        public virtual Users Users { get; set; }
         public virtual ICollection<Offersform_SingleVehicle> Offersform_SingleVehicle { get; set; }
     }
 }

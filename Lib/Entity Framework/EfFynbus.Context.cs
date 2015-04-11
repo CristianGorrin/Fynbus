@@ -30,8 +30,8 @@ namespace Lib.Entity_Framework
         public virtual DbSet<Offersform_SingleVehicle> Offersform_SingleVehicle { get; set; }
         public virtual DbSet<Price> Price { get; set; }
         public virtual DbSet<PricePlan> PricePlan { get; set; }
-        public virtual DbSet<WagonDetails> WagonDetails { get; set; }
         public virtual DbSet<Token> Token { get; set; }
         public virtual DbSet<Users> Users { get; set; }
+        public virtual DbSet<WagonDetails> WagonDetails { get; set; }
     }
 }

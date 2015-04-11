@@ -80,6 +80,12 @@
     <Compile Include="Entity Framework\PricePlan.cs">
       <DependentUpon>EfFynbus.tt</DependentUpon>
     </Compile>
+    <Compile Include="Entity Framework\Token.cs">
+      <DependentUpon>EfFynbus.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity Framework\Users.cs">
+      <DependentUpon>EfFynbus.tt</DependentUpon>
+    </Compile>
     <Compile Include="Entity Framework\WagonDetails.cs">
       <DependentUpon>EfFynbus.tt</DependentUpon>
     </Compile>

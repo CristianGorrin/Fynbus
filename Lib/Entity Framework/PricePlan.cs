@@ -14,20 +14,9 @@ namespace Lib.Entity_Framework
     
     public partial class PricePlan
     {
-        public PricePlan()
-        {
-            this.Price = new HashSet<Price>();
-            this.Price1 = new HashSet<Price>();
-            this.Price2 = new HashSet<Price>();
-        }
-    
         public int ID { get; set; }
         public decimal SetUpFee { get; set; }
         public decimal HourlyRate { get; set; }
         public decimal HourlyDdownTime { get; set; }
-    
-        public virtual ICollection<Price> Price { get; set; }
-        public virtual ICollection<Price> Price1 { get; set; }
-        public virtual ICollection<Price> Price2 { get; set; }
     }
 }
