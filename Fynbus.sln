@@ -19,7 +19,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".sql", ".sql", "{126C7B88-0
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Setup", "Setup", "{1682865D-B9AA-42C5-A807-D93A16E15237}"
 	ProjectSection(SolutionItems) = preProject
-		SetupV0_1.sql = SetupV0_1.sql
+		SetupV0_2.sql = SetupV0_2.sql
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Dummy data", "Dummy data", "{B1FA160B-57B3-404D-BBEC-8ABBF8B093E1}"
