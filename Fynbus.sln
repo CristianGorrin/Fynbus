@@ -11,8 +11,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".git", ".git", "{6B40AD08-D
 		.gitignore = .gitignore
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WcfServiceFynbus", "WcfServiceFynbus\WcfServiceFynbus.csproj", "{58CCCDBE-8625-4FFB-A3D7-D0BEC23A67FB}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lib", "Lib\Lib.csproj", "{9EEE30F8-6B20-4677-B2DF-892433A1EF82}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".sql", ".sql", "{126C7B88-00BD-4A3D-AF9E-E1360279BD95}"
@@ -38,16 +36,23 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mvc4FynbusWeb", "Mvc4Fynbus
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Interface", "Interface\Interface.csproj", "{EE24781A-EC58-4A66-9857-B2C67B78079C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Server", "Server\Server.csproj", "{2703848D-D00F-4911-847E-DCE93572951F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfFynbusServerManager", "WpfFynbusServerManager\WpfFynbusServerManager.csproj", "{D33FCDB0-5C82-428E-B9E8-F503FF73FF2A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WcfFynbusService", "WcfFynbusService\WcfFynbusService.csproj", "{24A8DFEB-ADA3-4D0D-97A4-F8AF04E5ED26}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".diagrams", ".diagrams", "{1CD00883-41C7-450D-8B34-3B93E864E882}"
+	ProjectSection(SolutionItems) = preProject
+		Diagrams\Architecture.vsdx = Diagrams\Architecture.vsdx
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{58CCCDBE-8625-4FFB-A3D7-D0BEC23A67FB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{58CCCDBE-8625-4FFB-A3D7-D0BEC23A67FB}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{58CCCDBE-8625-4FFB-A3D7-D0BEC23A67FB}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{58CCCDBE-8625-4FFB-A3D7-D0BEC23A67FB}.Release|Any CPU.Build.0 = Release|Any CPU
 		{9EEE30F8-6B20-4677-B2DF-892433A1EF82}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{9EEE30F8-6B20-4677-B2DF-892433A1EF82}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9EEE30F8-6B20-4677-B2DF-892433A1EF82}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -60,6 +65,18 @@ Global
 		{EE24781A-EC58-4A66-9857-B2C67B78079C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EE24781A-EC58-4A66-9857-B2C67B78079C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EE24781A-EC58-4A66-9857-B2C67B78079C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2703848D-D00F-4911-847E-DCE93572951F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2703848D-D00F-4911-847E-DCE93572951F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2703848D-D00F-4911-847E-DCE93572951F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2703848D-D00F-4911-847E-DCE93572951F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D33FCDB0-5C82-428E-B9E8-F503FF73FF2A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D33FCDB0-5C82-428E-B9E8-F503FF73FF2A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D33FCDB0-5C82-428E-B9E8-F503FF73FF2A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D33FCDB0-5C82-428E-B9E8-F503FF73FF2A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{24A8DFEB-ADA3-4D0D-97A4-F8AF04E5ED26}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{24A8DFEB-ADA3-4D0D-97A4-F8AF04E5ED26}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{24A8DFEB-ADA3-4D0D-97A4-F8AF04E5ED26}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{24A8DFEB-ADA3-4D0D-97A4-F8AF04E5ED26}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

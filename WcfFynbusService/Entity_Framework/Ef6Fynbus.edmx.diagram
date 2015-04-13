@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="7e12278375c743758c22e3821f8b5cd8" Name="Diagram1" >
+        <EntityTypeShape EntityType="Ef6Fynbus.BasicInformation" Width="1.5" PointX="3" PointY="4.75" />
+        <EntityTypeShape EntityType="Ef6Fynbus.HomeWagon" Width="1.5" PointX="3.75" PointY="11.125" />
+        <EntityTypeShape EntityType="Ef6Fynbus.Offersform_SingleVehicle" Width="1.5" PointX="5.25" PointY="5.25" />
+        <EntityTypeShape EntityType="Ef6Fynbus.Price" Width="1.5" PointX="3" PointY="0.75" />
+        <EntityTypeShape EntityType="Ef6Fynbus.PricePlan" Width="1.5" PointX="0.75" PointY="2.25" />
+        <EntityTypeShape EntityType="Ef6Fynbus.Token" Width="1.5" PointX="3" PointY="7.875" />
+        <EntityTypeShape EntityType="Ef6Fynbus.Users" Width="1.5" PointX="0.75" PointY="5.875" />
+        <EntityTypeShape EntityType="Ef6Fynbus.WagonDetails" Width="1.5" PointX="6" PointY="9.375" />
+        <AssociationConnector Association="Ef6Fynbus.FK_OwnedBy_Users_ID" />
+        <AssociationConnector Association="Ef6Fynbus.OffersformSingleVehicle_FK_BasicInformation" />
+        <AssociationConnector Association="Ef6Fynbus.WagonDetails_FK_HomeWagon" />
+        <AssociationConnector Association="Ef6Fynbus.OffersformSingleVehicle_FK_Price" />
+        <AssociationConnector Association="Ef6Fynbus.OffersformSingleVehicle_FK_WagonDetails" />
+        <AssociationConnector Association="Ef6Fynbus.OwnedBy_FK_Users_ID" />
+        <AssociationConnector Association="Ef6Fynbus.Weekdays_FK_PricePlan" />
+        <AssociationConnector Association="Ef6Fynbus.WeekdaysEvening_FK_PricePlan" />
+        <AssociationConnector Association="Ef6Fynbus.WeekendersHelligdage_FK_PricePlan" />
+        <AssociationConnector Association="Ef6Fynbus.UsersID_FK_Users_ID" />
+        <AssociationConnector Association="Ef6Fynbus.FK_WagonDetails_OwnedBy_Users_ID" />
+        <AssociationConnector Association="Ef6Fynbus.WagonDetails_FK_WagonDetails" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
