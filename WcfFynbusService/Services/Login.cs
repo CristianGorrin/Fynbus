@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace WcfFynbusService.Services
 {
-    [ServiceBehavior(InstanceContextMode = InstanceContextMode.PerCall)]
+    [ServiceBehavior(InstanceContextMode = InstanceContextMode.Single)]
     public class Login : Interfaces.ILogin
     {
         private const string TOKEN_BASE = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefgijkmnopqrstuvwxyz0123456789";
@@ -22,6 +22,15 @@ namespace WcfFynbusService.Services
             this.rdgToken = new Entity_Framework.Implemented.RdgToken();
         }
 
+        private static string NewToken()
+        {
+            var random = new Random();
+            return new string(
+                    Enumerable.Repeat(TOKEN_BASE, 450)
+                                .Select(s => s[random.Next(s.Length)])
+                                .ToArray());
+        }
+
         public string LoginServices(string acc, string password)
         {
             var obj = this.rdgUser.Login(acc, password);
@@ -34,11 +43,7 @@ namespace WcfFynbusService.Services
 
                 while (result == string.Empty)
                 {
-                    var random = new Random();
-                    result = new string(
-                        Enumerable.Repeat(TOKEN_BASE, 450)
-                                  .Select(s => s[random.Next(s.Length)])
-                                  .ToArray());
+                    result = NewToken();
 
                     if (this.rdgToken.FindId(result) == null)
                     {

@@ -103,8 +103,10 @@
       <DependentUpon>EfFynbus.tt</DependentUpon>
     </Compile>
     <Compile Include="Interfaces\ILogin.cs" />
+    <Compile Include="Interfaces\IOffersform_SingleVehicle.cs" />
     <Compile Include="Services\Login.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\Offersform_SingleVehicle.cs" />
     <Compile Include="Settigs\DB.cs" />
   </ItemGroup>
   <ItemGroup>

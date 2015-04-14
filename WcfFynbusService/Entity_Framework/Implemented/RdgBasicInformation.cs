@@ -20,7 +20,7 @@ namespace WcfFynbusService.Entity_Framework.Implemented
             this.dbContext.Dispose();
         }
 
-        public bool Add(string name, int cvr, string nameSecondary)
+        public bool Add(int usersID, string name, int cvr, string nameSecondary)
         {
             try
             {
@@ -28,6 +28,7 @@ namespace WcfFynbusService.Entity_Framework.Implemented
                 obj.Name = name;
                 obj.CVR = cvr;
                 obj.NameSecondary = nameSecondary;
+                obj.OwnedBy = usersID;
 
                 this.dbContext.BasicInformations.Add(obj);
                 this.dbContext.SaveChanges();
@@ -87,15 +88,18 @@ namespace WcfFynbusService.Entity_Framework.Implemented
             }
         }
 
-        public int? FindID(string name, int cvr, string nameSecondary)
+        public int? FindID(string name, int cvr, string nameSecondary, out BasicInformation obj)
         {
             try
             {
-                return this.dbContext.BasicInformations.SingleOrDefault(
-                    x => x.Name == name & x.CVR == cvr & x.NameSecondary == nameSecondary).ID;
+                obj = this.dbContext.BasicInformations.SingleOrDefault(
+                    x => x.Name == name & x.CVR == cvr & x.NameSecondary == nameSecondary);
+
+                return obj.ID;
             }
             catch (Exception)
             {
+                obj = null;
                 return null;
             }
         }
