@@ -6,13 +6,13 @@ using System.Threading.Tasks;
 
 namespace WcfFynbusService.Entity_Framework.Implemented
 {
-    public class RdgPrice : Implemented.RdgBase
+    public class RdgPrice
     {
+        private WcfFynbusService.Entity_Framework.FynbusContext dbContext;
 
         public RdgPrice()
-            : base()
         {
-
+            this.dbContext = WcfFynbusService.Entity_Framework.Implemented.DbContextFynbus.dbContext;
         }
 
         ~RdgPrice()

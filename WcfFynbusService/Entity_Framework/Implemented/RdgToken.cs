@@ -6,12 +6,13 @@ using System.Threading.Tasks;
 
 namespace WcfFynbusService.Entity_Framework.Implemented
 {
-    public class RdgToken : Implemented.RdgBase
+    public class RdgToken
     {
-        public RdgToken()
-            : base()
-        {
+        private WcfFynbusService.Entity_Framework.FynbusContext dbContext;
 
+        public RdgToken()
+        {
+            this.dbContext = WcfFynbusService.Entity_Framework.Implemented.DbContextFynbus.dbContext;
         }
         
         ~RdgToken()
@@ -57,6 +58,29 @@ namespace WcfFynbusService.Entity_Framework.Implemented
             return true;
         }
 
+        public int RemoveAtUserId(int usersId)
+        {
+            int count = 0;
+            try
+            {
+                foreach (var item in this.dbContext.Tokens)
+                {
+                    if (item.UsersID == usersId)
+                    {
+                        this.dbContext.Tokens.Remove(item);
+                        count++;
+                    }
+                }
+
+                this.dbContext.SaveChanges();
+                return count;
+            }
+            catch (Exception)
+            {
+                return -1;
+            }
+        }
+
         public Token Find(int id)
         {
             try
@@ -78,6 +102,27 @@ namespace WcfFynbusService.Entity_Framework.Implemented
             catch (Exception)
             {
                 return null;
+            }
+        }
+
+        public bool ValidateToken(string token, string acc)
+        {
+            try
+            {
+                var obj = this.dbContext.Tokens.Single(x => x.TokenString == token & x.User.Account == acc);
+
+                if (obj != null)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            catch (Exception)
+            {
+                return false;
             }
         }
     }

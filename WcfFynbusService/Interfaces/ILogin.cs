@@ -20,6 +20,6 @@ namespace WcfFynbusService.Interfaces
         bool CreatedAccount(string accName, string password, string email);
 
         [OperationContract]
-        bool ValidateAccName(string name);
+        bool ValidateAccNewName(string name);
     }
 }

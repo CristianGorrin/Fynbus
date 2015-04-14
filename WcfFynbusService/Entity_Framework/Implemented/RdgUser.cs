@@ -6,13 +6,13 @@ using System.Threading.Tasks;
 
 namespace WcfFynbusService.Entity_Framework.Implemented
 {
-    public class RdgUser : Implemented.RdgBase
+    public class RdgUser
     {
-        
-        public RdgUser()
-            : base()
-        {
+        private WcfFynbusService.Entity_Framework.FynbusContext dbContext;
 
+        public RdgUser()
+        {
+            this.dbContext = WcfFynbusService.Entity_Framework.Implemented.DbContextFynbus.dbContext;
         }
                 
         ~RdgUser()
@@ -115,6 +115,38 @@ namespace WcfFynbusService.Entity_Framework.Implemented
             {
                 return null;
             }
+        }
+
+        public User Login(string acc, string pass)
+        {
+            try
+            {
+                return this.dbContext.Users.Single(x => x.Account == acc & x.Password == pass);
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+        }
+
+        public bool NameInUse(string name)
+        {
+            try
+            {
+                foreach (var item in this.dbContext.Users)
+                {
+                    if (item.Account == name)
+                    {
+                        return false;
+                    }
+                }
+            }
+            catch (Exception)
+            {
+                return true;
+            }
+
+            return true;
         }
     }
 }

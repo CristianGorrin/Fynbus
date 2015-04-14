@@ -75,7 +75,7 @@
     <Compile Include="Entity_Framework\HomeWagon.cs">
       <DependentUpon>EfFynbus.tt</DependentUpon>
     </Compile>
-    <Compile Include="Entity_Framework\Implemented\RdgBase.cs" />
+    <Compile Include="Entity_Framework\Implemented\DbContextFynbus.cs" />
     <Compile Include="Entity_Framework\Implemented\RdgBasicInformation.cs" />
     <Compile Include="Entity_Framework\Implemented\RdgPrice.cs" />
     <Compile Include="Entity_Framework\Implemented\RdgPricePlan.cs" />
@@ -103,10 +103,8 @@
       <DependentUpon>EfFynbus.tt</DependentUpon>
     </Compile>
     <Compile Include="Interfaces\ILogin.cs" />
-    <Compile Include="IService1.cs" />
     <Compile Include="Services\Login.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Service1.cs" />
     <Compile Include="Settigs\DB.cs" />
   </ItemGroup>
   <ItemGroup>

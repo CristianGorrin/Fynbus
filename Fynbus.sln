@@ -36,8 +36,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mvc4FynbusWeb", "Mvc4Fynbus
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Interface", "Interface\Interface.csproj", "{EE24781A-EC58-4A66-9857-B2C67B78079C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Server", "Server\Server.csproj", "{2703848D-D00F-4911-847E-DCE93572951F}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfFynbusServerManager", "WpfFynbusServerManager\WpfFynbusServerManager.csproj", "{D33FCDB0-5C82-428E-B9E8-F503FF73FF2A}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WcfFynbusService", "WcfFynbusService\WcfFynbusService.csproj", "{24A8DFEB-ADA3-4D0D-97A4-F8AF04E5ED26}"
@@ -65,10 +63,6 @@ Global
 		{EE24781A-EC58-4A66-9857-B2C67B78079C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EE24781A-EC58-4A66-9857-B2C67B78079C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EE24781A-EC58-4A66-9857-B2C67B78079C}.Release|Any CPU.Build.0 = Release|Any CPU
-		{2703848D-D00F-4911-847E-DCE93572951F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{2703848D-D00F-4911-847E-DCE93572951F}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{2703848D-D00F-4911-847E-DCE93572951F}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{2703848D-D00F-4911-847E-DCE93572951F}.Release|Any CPU.Build.0 = Release|Any CPU
 		{D33FCDB0-5C82-428E-B9E8-F503FF73FF2A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{D33FCDB0-5C82-428E-B9E8-F503FF73FF2A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D33FCDB0-5C82-428E-B9E8-F503FF73FF2A}.Release|Any CPU.ActiveCfg = Release|Any CPU

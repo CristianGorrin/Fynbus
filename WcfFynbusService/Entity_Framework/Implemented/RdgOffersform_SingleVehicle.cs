@@ -6,13 +6,13 @@ using System.Threading.Tasks;
 
 namespace WcfFynbusService.Entity_Framework.Implemented
 {
-    public class RdgOffersform_SingleVehicle : Implemented.RdgBase
+    public class RdgOffersform_SingleVehicle
     {
+        private WcfFynbusService.Entity_Framework.FynbusContext dbContext;
 
         public RdgOffersform_SingleVehicle()
-            : base()
         {
-
+            this.dbContext = WcfFynbusService.Entity_Framework.Implemented.DbContextFynbus.dbContext;
         }
 
         ~RdgOffersform_SingleVehicle()
