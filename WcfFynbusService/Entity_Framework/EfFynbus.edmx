@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="Ef6Fynbus.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="FynbusModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="BasicInformation">
           <Key>
             <PropertyRef Name="ID" />
@@ -234,7 +234,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="Ef6FynbusStoreContainer">
+        <EntityContainer Name="FynbusModelStoreContainer">
           <EntitySet Name="BasicInformation" EntityType="Self.BasicInformation" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="HomeWagon" EntityType="Self.HomeWagon" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Offersform_SingleVehicle" EntityType="Self.Offersform_SingleVehicle" Schema="dbo" store:Type="Tables" />
@@ -295,88 +295,29 @@
       </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="Ef6Fynbus" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" annotation:UseStrongSpatialTypes="false">
-        <EntityContainer Name="Ef6FynbusContainer" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="BasicInformation" EntityType="Ef6Fynbus.BasicInformation" />
-          <EntitySet Name="HomeWagon" EntityType="Ef6Fynbus.HomeWagon" />
-          <EntitySet Name="Offersform_SingleVehicle" EntityType="Ef6Fynbus.Offersform_SingleVehicle" />
-          <EntitySet Name="Price" EntityType="Ef6Fynbus.Price" />
-          <EntitySet Name="PricePlan" EntityType="Ef6Fynbus.PricePlan" />
-          <EntitySet Name="Token" EntityType="Ef6Fynbus.Token" />
-          <EntitySet Name="Users" EntityType="Ef6Fynbus.Users" />
-          <EntitySet Name="WagonDetails" EntityType="Ef6Fynbus.WagonDetails" />
-          <AssociationSet Name="FK_OwnedBy_Users_ID" Association="Ef6Fynbus.FK_OwnedBy_Users_ID">
-            <End Role="Users" EntitySet="Users" />
-            <End Role="BasicInformation" EntitySet="BasicInformation" />
-          </AssociationSet>
-          <AssociationSet Name="OffersformSingleVehicle_FK_BasicInformation" Association="Ef6Fynbus.OffersformSingleVehicle_FK_BasicInformation">
-            <End Role="BasicInformation" EntitySet="BasicInformation" />
-            <End Role="Offersform_SingleVehicle" EntitySet="Offersform_SingleVehicle" />
-          </AssociationSet>
-          <AssociationSet Name="WagonDetails_FK_HomeWagon" Association="Ef6Fynbus.WagonDetails_FK_HomeWagon">
-            <End Role="HomeWagon" EntitySet="HomeWagon" />
-            <End Role="WagonDetails" EntitySet="WagonDetails" />
-          </AssociationSet>
-          <AssociationSet Name="OffersformSingleVehicle_FK_Price" Association="Ef6Fynbus.OffersformSingleVehicle_FK_Price">
-            <End Role="Price" EntitySet="Price" />
-            <End Role="Offersform_SingleVehicle" EntitySet="Offersform_SingleVehicle" />
-          </AssociationSet>
-          <AssociationSet Name="OffersformSingleVehicle_FK_WagonDetails" Association="Ef6Fynbus.OffersformSingleVehicle_FK_WagonDetails">
-            <End Role="WagonDetails" EntitySet="WagonDetails" />
-            <End Role="Offersform_SingleVehicle" EntitySet="Offersform_SingleVehicle" />
-          </AssociationSet>
-          <AssociationSet Name="OwnedBy_FK_Users_ID" Association="Ef6Fynbus.OwnedBy_FK_Users_ID">
-            <End Role="Users" EntitySet="Users" />
-            <End Role="Offersform_SingleVehicle" EntitySet="Offersform_SingleVehicle" />
-          </AssociationSet>
-          <AssociationSet Name="Weekdays_FK_PricePlan" Association="Ef6Fynbus.Weekdays_FK_PricePlan">
-            <End Role="PricePlan" EntitySet="PricePlan" />
-            <End Role="Price" EntitySet="Price" />
-          </AssociationSet>
-          <AssociationSet Name="WeekdaysEvening_FK_PricePlan" Association="Ef6Fynbus.WeekdaysEvening_FK_PricePlan">
-            <End Role="PricePlan" EntitySet="PricePlan" />
-            <End Role="Price" EntitySet="Price" />
-          </AssociationSet>
-          <AssociationSet Name="WeekendersHelligdage_FK_PricePlan" Association="Ef6Fynbus.WeekendersHelligdage_FK_PricePlan">
-            <End Role="PricePlan" EntitySet="PricePlan" />
-            <End Role="Price" EntitySet="Price" />
-          </AssociationSet>
-          <AssociationSet Name="UsersID_FK_Users_ID" Association="Ef6Fynbus.UsersID_FK_Users_ID">
-            <End Role="Users" EntitySet="Users" />
-            <End Role="Token" EntitySet="Token" />
-          </AssociationSet>
-          <AssociationSet Name="FK_WagonDetails_OwnedBy_Users_ID" Association="Ef6Fynbus.FK_WagonDetails_OwnedBy_Users_ID">
-            <End Role="Users" EntitySet="Users" />
-            <End Role="WagonDetails" EntitySet="WagonDetails" />
-          </AssociationSet>
-          <AssociationSet Name="WagonDetails_FK_WagonDetails" Association="Ef6Fynbus.WagonDetails_FK_WagonDetails">
-            <End Role="WagonDetails" EntitySet="WagonDetails" />
-            <End Role="WagonDetails1" EntitySet="WagonDetails" />
-          </AssociationSet>
-        </EntityContainer>
+      <Schema Namespace="FynbusModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityType Name="BasicInformation">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
           <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Name" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="CVR" Type="Int32" Nullable="false" />
           <Property Name="NameSecondary" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="OwnedBy" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Users" Relationship="Ef6Fynbus.FK_OwnedBy_Users_ID" FromRole="BasicInformation" ToRole="Users" />
-          <NavigationProperty Name="Offersform_SingleVehicle" Relationship="Ef6Fynbus.OffersformSingleVehicle_FK_BasicInformation" FromRole="BasicInformation" ToRole="Offersform_SingleVehicle" />
+          <NavigationProperty Name="ObjUser" Relationship="Self.FK_OwnedBy_Users_ID" FromRole="BasicInformation" ToRole="Users" />
+          <NavigationProperty Name="Offersform_SingleVehicle" Relationship="Self.OffersformSingleVehicle_FK_BasicInformation" FromRole="BasicInformation" ToRole="Offersform_SingleVehicle" />
         </EntityType>
         <EntityType Name="HomeWagon">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
           <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="StreetName" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="StreetName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="StreetNumber" Type="Int16" Nullable="false" />
           <Property Name="ZipCode" Type="Int16" Nullable="false" />
-          <Property Name="City" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="Municipality" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="WagonDetails" Relationship="Ef6Fynbus.WagonDetails_FK_HomeWagon" FromRole="HomeWagon" ToRole="WagonDetails" />
+          <Property Name="City" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Municipality" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
         </EntityType>
         <EntityType Name="Offersform_SingleVehicle">
           <Key>
@@ -388,10 +329,10 @@
           <Property Name="Price" Type="Int32" Nullable="false" />
           <Property Name="AdditionalInformation" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="OwnedBy" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="BasicInformation1" Relationship="Ef6Fynbus.OffersformSingleVehicle_FK_BasicInformation" FromRole="Offersform_SingleVehicle" ToRole="BasicInformation" />
-          <NavigationProperty Name="Price1" Relationship="Ef6Fynbus.OffersformSingleVehicle_FK_Price" FromRole="Offersform_SingleVehicle" ToRole="Price" />
-          <NavigationProperty Name="WagonDetails1" Relationship="Ef6Fynbus.OffersformSingleVehicle_FK_WagonDetails" FromRole="Offersform_SingleVehicle" ToRole="WagonDetails" />
-          <NavigationProperty Name="Users" Relationship="Ef6Fynbus.OwnedBy_FK_Users_ID" FromRole="Offersform_SingleVehicle" ToRole="Users" />
+          <NavigationProperty Name="ObjBasicInformation" Relationship="Self.OffersformSingleVehicle_FK_BasicInformation" FromRole="Offersform_SingleVehicle" ToRole="BasicInformation" />
+          <NavigationProperty Name="Prices" Relationship="Self.OffersformSingleVehicle_FK_Price" FromRole="Offersform_SingleVehicle" ToRole="Price" />
+          <NavigationProperty Name="WagonDetail" Relationship="Self.OffersformSingleVehicle_FK_WagonDetails" FromRole="Offersform_SingleVehicle" ToRole="WagonDetails" />
+          <NavigationProperty Name="User" Relationship="Self.OwnedBy_FK_Users_ID" FromRole="Offersform_SingleVehicle" ToRole="Users" />
         </EntityType>
         <EntityType Name="Price">
           <Key>
@@ -402,34 +343,31 @@
           <Property Name="WeekdaysEvening" Type="Int32" Nullable="false" />
           <Property Name="WeekendersHelligdage" Type="Int32" Nullable="false" />
           <Property Name="StairMachine" Type="Decimal" Precision="6" Scale="2" />
-          <NavigationProperty Name="Offersform_SingleVehicle" Relationship="Ef6Fynbus.OffersformSingleVehicle_FK_Price" FromRole="Price" ToRole="Offersform_SingleVehicle" />
-          <NavigationProperty Name="PricePlan" Relationship="Ef6Fynbus.Weekdays_FK_PricePlan" FromRole="Price" ToRole="PricePlan" />
-          <NavigationProperty Name="PricePlan1" Relationship="Ef6Fynbus.WeekdaysEvening_FK_PricePlan" FromRole="Price" ToRole="PricePlan" />
-          <NavigationProperty Name="PricePlan2" Relationship="Ef6Fynbus.WeekendersHelligdage_FK_PricePlan" FromRole="Price" ToRole="PricePlan" />
+          <NavigationProperty Name="Offersform_SingleVehicle" Relationship="Self.OffersformSingleVehicle_FK_Price" FromRole="Price" ToRole="Offersform_SingleVehicle" />
+          <NavigationProperty Name="ObjWeekdays" Relationship="Self.Weekdays_FK_PricePlan" FromRole="Price" ToRole="PricePlan" />
+          <NavigationProperty Name="ObjWeekdaysEvening" Relationship="Self.WeekdaysEvening_FK_PricePlan" FromRole="Price" ToRole="PricePlan" />
+          <NavigationProperty Name="ObjWeekendersHelligdage" Relationship="Self.WeekendersHelligdage_FK_PricePlan" FromRole="Price" ToRole="PricePlan" />
         </EntityType>
         <EntityType Name="PricePlan">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
           <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="SetUpFee" Type="Decimal" Nullable="false" Precision="6" Scale="2" />
-          <Property Name="HourlyRate" Type="Decimal" Nullable="false" Precision="6" Scale="2" />
-          <Property Name="HourlyDdownTime" Type="Decimal" Nullable="false" Precision="6" Scale="2" />
-          <NavigationProperty Name="Price" Relationship="Ef6Fynbus.Weekdays_FK_PricePlan" FromRole="PricePlan" ToRole="Price" />
-          <NavigationProperty Name="Price1" Relationship="Ef6Fynbus.WeekdaysEvening_FK_PricePlan" FromRole="PricePlan" ToRole="Price" />
-          <NavigationProperty Name="Price2" Relationship="Ef6Fynbus.WeekendersHelligdage_FK_PricePlan" FromRole="PricePlan" ToRole="Price" />
-        </EntityType>
+          <Property Name="SetUpFee" Type="Decimal" Precision="6" Scale="2" Nullable="false" />
+          <Property Name="HourlyRate" Type="Decimal" Precision="6" Scale="2" Nullable="false" />
+          <Property Name="HourlyDdownTime" Type="Decimal" Precision="6" Scale="2" Nullable="false" />
+          </EntityType>
         <EntityType Name="Token">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
           <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="UsersID" Type="Int32" Nullable="false" />
-          <Property Name="TokenString" Type="String" Nullable="false" MaxLength="450" FixedLength="false" Unicode="true" />
+          <Property Name="TokenString" Type="String" MaxLength="450" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="0" />
-          <NavigationProperty Name="Users" Relationship="Ef6Fynbus.UsersID_FK_Users_ID" FromRole="Token" ToRole="Users" />
+          <NavigationProperty Name="User" Relationship="Self.UsersID_FK_Users_ID" FromRole="Token" ToRole="Users" />
         </EntityType>
-        <EntityType Name="Users">
+        <EntityType Name="User">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
@@ -438,12 +376,12 @@
           <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Email" Type="String" MaxLength="80" FixedLength="false" Unicode="true" />
           <Property Name="UsersAccessLevels" Type="Byte" />
-          <NavigationProperty Name="BasicInformation" Relationship="Ef6Fynbus.FK_OwnedBy_Users_ID" FromRole="Users" ToRole="BasicInformation" />
-          <NavigationProperty Name="Offersform_SingleVehicle" Relationship="Ef6Fynbus.OwnedBy_FK_Users_ID" FromRole="Users" ToRole="Offersform_SingleVehicle" />
-          <NavigationProperty Name="Token" Relationship="Ef6Fynbus.UsersID_FK_Users_ID" FromRole="Users" ToRole="Token" />
-          <NavigationProperty Name="WagonDetails" Relationship="Ef6Fynbus.FK_WagonDetails_OwnedBy_Users_ID" FromRole="Users" ToRole="WagonDetails" />
+          <NavigationProperty Name="BasicInformations" Relationship="Self.FK_OwnedBy_Users_ID" FromRole="Users" ToRole="BasicInformation" />
+          <NavigationProperty Name="Offersform_SingleVehicle" Relationship="Self.OwnedBy_FK_Users_ID" FromRole="Users" ToRole="Offersform_SingleVehicle" />
+          <NavigationProperty Name="Tokens" Relationship="Self.UsersID_FK_Users_ID" FromRole="Users" ToRole="Token" />
+          <NavigationProperty Name="WagonDetails" Relationship="Self.FK_WagonDetails_OwnedBy_Users_ID" FromRole="Users" ToRole="WagonDetails" />
         </EntityType>
-        <EntityType Name="WagonDetails">
+        <EntityType Name="WagonDetail">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
@@ -457,15 +395,15 @@
           <Property Name="Highchairs" Type="Byte" />
           <Property Name="HomeWagon" Type="Int32" />
           <Property Name="OwnedBy" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="HomeWagon1" Relationship="Ef6Fynbus.WagonDetails_FK_HomeWagon" FromRole="WagonDetails" ToRole="HomeWagon" />
-          <NavigationProperty Name="Offersform_SingleVehicle" Relationship="Ef6Fynbus.OffersformSingleVehicle_FK_WagonDetails" FromRole="WagonDetails" ToRole="Offersform_SingleVehicle" />
-          <NavigationProperty Name="Users" Relationship="Ef6Fynbus.FK_WagonDetails_OwnedBy_Users_ID" FromRole="WagonDetails" ToRole="Users" />
-          <NavigationProperty Name="WagonDetails1" Relationship="Ef6Fynbus.WagonDetails_FK_WagonDetails" FromRole="WagonDetails" ToRole="WagonDetails1" />
-          <NavigationProperty Name="WagonDetails2" Relationship="Ef6Fynbus.WagonDetails_FK_WagonDetails" FromRole="WagonDetails1" ToRole="WagonDetails" />
+          <NavigationProperty Name="ObjHomeWagon" Relationship="Self.WagonDetails_FK_HomeWagon" FromRole="WagonDetails" ToRole="HomeWagon" />
+          <NavigationProperty Name="Offersform_SingleVehicle" Relationship="Self.OffersformSingleVehicle_FK_WagonDetails" FromRole="WagonDetails" ToRole="Offersform_SingleVehicle" />
+          <NavigationProperty Name="User" Relationship="Self.FK_WagonDetails_OwnedBy_Users_ID" FromRole="WagonDetails" ToRole="Users" />
+          <NavigationProperty Name="GuaranteeOf" Relationship="Self.WagonDetails_FK_WagonDetails" FromRole="WagonDetails" ToRole="WagonDetails1" />
+          <NavigationProperty Name="GuaranteeBy" Relationship="Self.WagonDetails_FK_WagonDetails" FromRole="WagonDetails1" ToRole="WagonDetails" />
         </EntityType>
         <Association Name="FK_OwnedBy_Users_ID">
-          <End Type="Ef6Fynbus.Users" Role="Users" Multiplicity="1" />
-          <End Type="Ef6Fynbus.BasicInformation" Role="BasicInformation" Multiplicity="*" />
+          <End Role="Users" Type="Self.User" Multiplicity="1" />
+          <End Role="BasicInformation" Type="Self.BasicInformation" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Users">
               <PropertyRef Name="ID" />
@@ -476,8 +414,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="OffersformSingleVehicle_FK_BasicInformation">
-          <End Type="Ef6Fynbus.BasicInformation" Role="BasicInformation" Multiplicity="1" />
-          <End Type="Ef6Fynbus.Offersform_SingleVehicle" Role="Offersform_SingleVehicle" Multiplicity="*" />
+          <End Role="BasicInformation" Type="Self.BasicInformation" Multiplicity="1" />
+          <End Role="Offersform_SingleVehicle" Type="Self.Offersform_SingleVehicle" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="BasicInformation">
               <PropertyRef Name="ID" />
@@ -488,8 +426,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="WagonDetails_FK_HomeWagon">
-          <End Type="Ef6Fynbus.HomeWagon" Role="HomeWagon" Multiplicity="0..1" />
-          <End Type="Ef6Fynbus.WagonDetails" Role="WagonDetails" Multiplicity="*" />
+          <End Role="HomeWagon" Type="Self.HomeWagon" Multiplicity="0..1" />
+          <End Role="WagonDetails" Type="Self.WagonDetail" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="HomeWagon">
               <PropertyRef Name="ID" />
@@ -500,8 +438,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="OffersformSingleVehicle_FK_Price">
-          <End Type="Ef6Fynbus.Price" Role="Price" Multiplicity="1" />
-          <End Type="Ef6Fynbus.Offersform_SingleVehicle" Role="Offersform_SingleVehicle" Multiplicity="*" />
+          <End Role="Price" Type="Self.Price" Multiplicity="1" />
+          <End Role="Offersform_SingleVehicle" Type="Self.Offersform_SingleVehicle" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Price">
               <PropertyRef Name="ID" />
@@ -512,8 +450,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="OffersformSingleVehicle_FK_WagonDetails">
-          <End Type="Ef6Fynbus.WagonDetails" Role="WagonDetails" Multiplicity="1" />
-          <End Type="Ef6Fynbus.Offersform_SingleVehicle" Role="Offersform_SingleVehicle" Multiplicity="*" />
+          <End Role="WagonDetails" Type="Self.WagonDetail" Multiplicity="1" />
+          <End Role="Offersform_SingleVehicle" Type="Self.Offersform_SingleVehicle" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="WagonDetails">
               <PropertyRef Name="ID" />
@@ -524,8 +462,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="OwnedBy_FK_Users_ID">
-          <End Type="Ef6Fynbus.Users" Role="Users" Multiplicity="1" />
-          <End Type="Ef6Fynbus.Offersform_SingleVehicle" Role="Offersform_SingleVehicle" Multiplicity="*" />
+          <End Role="Users" Type="Self.User" Multiplicity="1" />
+          <End Role="Offersform_SingleVehicle" Type="Self.Offersform_SingleVehicle" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Users">
               <PropertyRef Name="ID" />
@@ -536,8 +474,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="Weekdays_FK_PricePlan">
-          <End Type="Ef6Fynbus.PricePlan" Role="PricePlan" Multiplicity="1" />
-          <End Type="Ef6Fynbus.Price" Role="Price" Multiplicity="*" />
+          <End Role="PricePlan" Type="Self.PricePlan" Multiplicity="1" />
+          <End Role="Price" Type="Self.Price" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="PricePlan">
               <PropertyRef Name="ID" />
@@ -548,8 +486,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="WeekdaysEvening_FK_PricePlan">
-          <End Type="Ef6Fynbus.PricePlan" Role="PricePlan" Multiplicity="1" />
-          <End Type="Ef6Fynbus.Price" Role="Price" Multiplicity="*" />
+          <End Role="PricePlan" Type="Self.PricePlan" Multiplicity="1" />
+          <End Role="Price" Type="Self.Price" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="PricePlan">
               <PropertyRef Name="ID" />
@@ -560,8 +498,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="WeekendersHelligdage_FK_PricePlan">
-          <End Type="Ef6Fynbus.PricePlan" Role="PricePlan" Multiplicity="1" />
-          <End Type="Ef6Fynbus.Price" Role="Price" Multiplicity="*" />
+          <End Role="PricePlan" Type="Self.PricePlan" Multiplicity="1" />
+          <End Role="Price" Type="Self.Price" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="PricePlan">
               <PropertyRef Name="ID" />
@@ -572,8 +510,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="UsersID_FK_Users_ID">
-          <End Type="Ef6Fynbus.Users" Role="Users" Multiplicity="1" />
-          <End Type="Ef6Fynbus.Token" Role="Token" Multiplicity="*" />
+          <End Role="Users" Type="Self.User" Multiplicity="1" />
+          <End Role="Token" Type="Self.Token" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Users">
               <PropertyRef Name="ID" />
@@ -584,8 +522,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_WagonDetails_OwnedBy_Users_ID">
-          <End Type="Ef6Fynbus.Users" Role="Users" Multiplicity="1" />
-          <End Type="Ef6Fynbus.WagonDetails" Role="WagonDetails" Multiplicity="*" />
+          <End Role="Users" Type="Self.User" Multiplicity="1" />
+          <End Role="WagonDetails" Type="Self.WagonDetail" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Users">
               <PropertyRef Name="ID" />
@@ -596,8 +534,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="WagonDetails_FK_WagonDetails">
-          <End Type="Ef6Fynbus.WagonDetails" Role="WagonDetails" Multiplicity="0..1" />
-          <End Type="Ef6Fynbus.WagonDetails" Role="WagonDetails1" Multiplicity="*" />
+          <End Role="WagonDetails" Type="Self.WagonDetail" Multiplicity="0..1" />
+          <End Role="WagonDetails1" Type="Self.WagonDetail" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="WagonDetails">
               <PropertyRef Name="ID" />
@@ -607,104 +545,160 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityContainer Name="FynbusContext" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="BasicInformations" EntityType="Self.BasicInformation" />
+          <EntitySet Name="HomeWagons" EntityType="Self.HomeWagon" />
+          <EntitySet Name="Offersform_SingleVehicle" EntityType="Self.Offersform_SingleVehicle" />
+          <EntitySet Name="Prices" EntityType="Self.Price" />
+          <EntitySet Name="PricePlans" EntityType="Self.PricePlan" />
+          <EntitySet Name="Tokens" EntityType="Self.Token" />
+          <EntitySet Name="Users" EntityType="Self.User" />
+          <EntitySet Name="WagonDetails" EntityType="Self.WagonDetail" />
+          <AssociationSet Name="FK_OwnedBy_Users_ID" Association="Self.FK_OwnedBy_Users_ID">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="BasicInformation" EntitySet="BasicInformations" />
+          </AssociationSet>
+          <AssociationSet Name="OffersformSingleVehicle_FK_BasicInformation" Association="Self.OffersformSingleVehicle_FK_BasicInformation">
+            <End Role="BasicInformation" EntitySet="BasicInformations" />
+            <End Role="Offersform_SingleVehicle" EntitySet="Offersform_SingleVehicle" />
+          </AssociationSet>
+          <AssociationSet Name="WagonDetails_FK_HomeWagon" Association="Self.WagonDetails_FK_HomeWagon">
+            <End Role="HomeWagon" EntitySet="HomeWagons" />
+            <End Role="WagonDetails" EntitySet="WagonDetails" />
+          </AssociationSet>
+          <AssociationSet Name="OffersformSingleVehicle_FK_Price" Association="Self.OffersformSingleVehicle_FK_Price">
+            <End Role="Price" EntitySet="Prices" />
+            <End Role="Offersform_SingleVehicle" EntitySet="Offersform_SingleVehicle" />
+          </AssociationSet>
+          <AssociationSet Name="OffersformSingleVehicle_FK_WagonDetails" Association="Self.OffersformSingleVehicle_FK_WagonDetails">
+            <End Role="WagonDetails" EntitySet="WagonDetails" />
+            <End Role="Offersform_SingleVehicle" EntitySet="Offersform_SingleVehicle" />
+          </AssociationSet>
+          <AssociationSet Name="OwnedBy_FK_Users_ID" Association="Self.OwnedBy_FK_Users_ID">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="Offersform_SingleVehicle" EntitySet="Offersform_SingleVehicle" />
+          </AssociationSet>
+          <AssociationSet Name="Weekdays_FK_PricePlan" Association="Self.Weekdays_FK_PricePlan">
+            <End Role="PricePlan" EntitySet="PricePlans" />
+            <End Role="Price" EntitySet="Prices" />
+          </AssociationSet>
+          <AssociationSet Name="WeekdaysEvening_FK_PricePlan" Association="Self.WeekdaysEvening_FK_PricePlan">
+            <End Role="PricePlan" EntitySet="PricePlans" />
+            <End Role="Price" EntitySet="Prices" />
+          </AssociationSet>
+          <AssociationSet Name="WeekendersHelligdage_FK_PricePlan" Association="Self.WeekendersHelligdage_FK_PricePlan">
+            <End Role="PricePlan" EntitySet="PricePlans" />
+            <End Role="Price" EntitySet="Prices" />
+          </AssociationSet>
+          <AssociationSet Name="UsersID_FK_Users_ID" Association="Self.UsersID_FK_Users_ID">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="Token" EntitySet="Tokens" />
+          </AssociationSet>
+          <AssociationSet Name="FK_WagonDetails_OwnedBy_Users_ID" Association="Self.FK_WagonDetails_OwnedBy_Users_ID">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="WagonDetails" EntitySet="WagonDetails" />
+          </AssociationSet>
+          <AssociationSet Name="WagonDetails_FK_WagonDetails" Association="Self.WagonDetails_FK_WagonDetails">
+            <End Role="WagonDetails" EntitySet="WagonDetails" />
+            <End Role="WagonDetails1" EntitySet="WagonDetails" />
+          </AssociationSet>
+        </EntityContainer>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
-      <Mapping xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs" Space="C-S">
-        <Alias Key="Model" Value="Ef6Fynbus" />
-        <Alias Key="Target" Value="Ef6Fynbus.Store" />
-        <EntityContainerMapping CdmEntityContainer="Ef6FynbusContainer" StorageEntityContainer="Ef6FynbusStoreContainer">
-          <EntitySetMapping Name="BasicInformation">
-            <EntityTypeMapping TypeName="Ef6Fynbus.BasicInformation">
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="FynbusModelStoreContainer" CdmEntityContainer="FynbusContext">
+          <EntitySetMapping Name="BasicInformations">
+            <EntityTypeMapping TypeName="FynbusModel.BasicInformation">
               <MappingFragment StoreEntitySet="BasicInformation">
-                <ScalarProperty Name="OwnedBy" ColumnName="OwnedBy" />
-                <ScalarProperty Name="NameSecondary" ColumnName="NameSecondary" />
-                <ScalarProperty Name="CVR" ColumnName="CVR" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="CVR" ColumnName="CVR" />
+                <ScalarProperty Name="NameSecondary" ColumnName="NameSecondary" />
+                <ScalarProperty Name="OwnedBy" ColumnName="OwnedBy" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="HomeWagon">
-            <EntityTypeMapping TypeName="Ef6Fynbus.HomeWagon">
+          <EntitySetMapping Name="HomeWagons">
+            <EntityTypeMapping TypeName="FynbusModel.HomeWagon">
               <MappingFragment StoreEntitySet="HomeWagon">
-                <ScalarProperty Name="Municipality" ColumnName="Municipality" />
-                <ScalarProperty Name="City" ColumnName="City" />
-                <ScalarProperty Name="ZipCode" ColumnName="ZipCode" />
-                <ScalarProperty Name="StreetNumber" ColumnName="StreetNumber" />
-                <ScalarProperty Name="StreetName" ColumnName="StreetName" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="StreetName" ColumnName="StreetName" />
+                <ScalarProperty Name="StreetNumber" ColumnName="StreetNumber" />
+                <ScalarProperty Name="ZipCode" ColumnName="ZipCode" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="Municipality" ColumnName="Municipality" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Offersform_SingleVehicle">
-            <EntityTypeMapping TypeName="Ef6Fynbus.Offersform_SingleVehicle">
+            <EntityTypeMapping TypeName="FynbusModel.Offersform_SingleVehicle">
               <MappingFragment StoreEntitySet="Offersform_SingleVehicle">
-                <ScalarProperty Name="OwnedBy" ColumnName="OwnedBy" />
-                <ScalarProperty Name="AdditionalInformation" ColumnName="AdditionalInformation" />
-                <ScalarProperty Name="Price" ColumnName="Price" />
-                <ScalarProperty Name="WagonDetails" ColumnName="WagonDetails" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="BasicInformation" ColumnName="BasicInformation" />
-                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="WagonDetails" ColumnName="WagonDetails" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="AdditionalInformation" ColumnName="AdditionalInformation" />
+                <ScalarProperty Name="OwnedBy" ColumnName="OwnedBy" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Price">
-            <EntityTypeMapping TypeName="Ef6Fynbus.Price">
+          <EntitySetMapping Name="Prices">
+            <EntityTypeMapping TypeName="FynbusModel.Price">
               <MappingFragment StoreEntitySet="Price">
-                <ScalarProperty Name="StairMachine" ColumnName="StairMachine" />
-                <ScalarProperty Name="WeekendersHelligdage" ColumnName="WeekendersHelligdage" />
-                <ScalarProperty Name="WeekdaysEvening" ColumnName="WeekdaysEvening" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="Weekdays" ColumnName="Weekdays" />
-                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="WeekdaysEvening" ColumnName="WeekdaysEvening" />
+                <ScalarProperty Name="WeekendersHelligdage" ColumnName="WeekendersHelligdage" />
+                <ScalarProperty Name="StairMachine" ColumnName="StairMachine" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="PricePlan">
-            <EntityTypeMapping TypeName="Ef6Fynbus.PricePlan">
+          <EntitySetMapping Name="PricePlans">
+            <EntityTypeMapping TypeName="FynbusModel.PricePlan">
               <MappingFragment StoreEntitySet="PricePlan">
-                <ScalarProperty Name="HourlyDdownTime" ColumnName="HourlyDdownTime" />
-                <ScalarProperty Name="HourlyRate" ColumnName="HourlyRate" />
-                <ScalarProperty Name="SetUpFee" ColumnName="SetUpFee" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="SetUpFee" ColumnName="SetUpFee" />
+                <ScalarProperty Name="HourlyRate" ColumnName="HourlyRate" />
+                <ScalarProperty Name="HourlyDdownTime" ColumnName="HourlyDdownTime" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Token">
-            <EntityTypeMapping TypeName="Ef6Fynbus.Token">
+          <EntitySetMapping Name="Tokens">
+            <EntityTypeMapping TypeName="FynbusModel.Token">
               <MappingFragment StoreEntitySet="Token">
-                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
-                <ScalarProperty Name="TokenString" ColumnName="TokenString" />
-                <ScalarProperty Name="UsersID" ColumnName="UsersID" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="UsersID" ColumnName="UsersID" />
+                <ScalarProperty Name="TokenString" ColumnName="TokenString" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Users">
-            <EntityTypeMapping TypeName="Ef6Fynbus.Users">
+            <EntityTypeMapping TypeName="FynbusModel.User">
               <MappingFragment StoreEntitySet="Users">
-                <ScalarProperty Name="UsersAccessLevels" ColumnName="UsersAccessLevels" />
-                <ScalarProperty Name="Email" ColumnName="Email" />
-                <ScalarProperty Name="Password" ColumnName="Password" />
-                <ScalarProperty Name="Account" ColumnName="Account" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Account" ColumnName="Account" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="UsersAccessLevels" ColumnName="UsersAccessLevels" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="WagonDetails">
-            <EntityTypeMapping TypeName="Ef6Fynbus.WagonDetails">
+            <EntityTypeMapping TypeName="FynbusModel.WagonDetail">
               <MappingFragment StoreEntitySet="WagonDetails">
-                <ScalarProperty Name="OwnedBy" ColumnName="OwnedBy" />
-                <ScalarProperty Name="HomeWagon" ColumnName="HomeWagon" />
-                <ScalarProperty Name="Highchairs" ColumnName="Highchairs" />
-                <ScalarProperty Name="StairMachine" ColumnName="StairMachine" />
-                <ScalarProperty Name="VehicleType" ColumnName="VehicleType" />
-                <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
-                <ScalarProperty Name="RegistrationNumbers" ColumnName="RegistrationNumbers" />
-                <ScalarProperty Name="RegistrationLetters" ColumnName="RegistrationLetters" />
-                <ScalarProperty Name="Guarantee" ColumnName="Guarantee" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Guarantee" ColumnName="Guarantee" />
+                <ScalarProperty Name="RegistrationLetters" ColumnName="RegistrationLetters" />
+                <ScalarProperty Name="RegistrationNumbers" ColumnName="RegistrationNumbers" />
+                <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+                <ScalarProperty Name="VehicleType" ColumnName="VehicleType" />
+                <ScalarProperty Name="StairMachine" ColumnName="StairMachine" />
+                <ScalarProperty Name="Highchairs" ColumnName="Highchairs" />
+                <ScalarProperty Name="HomeWagon" ColumnName="HomeWagon" />
+                <ScalarProperty Name="OwnedBy" ColumnName="OwnedBy" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -713,23 +707,22 @@
     </edmx:Mappings>
   </edmx:Runtime>
   <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
-  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
-    <edmx:Connection>
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
       <DesignerInfoPropertySet>
         <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
       </DesignerInfoPropertySet>
-    </edmx:Connection>
-    <edmx:Options>
+    </Connection>
+    <Options>
       <DesignerInfoPropertySet>
         <DesignerProperty Name="ValidateOnBuild" Value="true" />
-        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
         <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
-        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
-        <DesignerProperty Name="UseLegacyProvider" Value="False" />
       </DesignerInfoPropertySet>
-    </edmx:Options>
+    </Options>
     <!-- Diagram content (shape and connector positions) -->
-    <edmx:Diagrams>
-    </edmx:Diagrams>
-  </edmx:Designer>
+    <Diagrams></Diagrams>
+  </Designer>
 </edmx:Edmx>

@@ -14,18 +14,11 @@ namespace WcfFynbusService.Entity_Framework
     
     public partial class HomeWagon
     {
-        public HomeWagon()
-        {
-            this.WagonDetails = new HashSet<WagonDetails>();
-        }
-    
         public int ID { get; set; }
         public string StreetName { get; set; }
         public short StreetNumber { get; set; }
         public short ZipCode { get; set; }
         public string City { get; set; }
         public string Municipality { get; set; }
-    
-        public virtual ICollection<WagonDetails> WagonDetails { get; set; }
     }
 }

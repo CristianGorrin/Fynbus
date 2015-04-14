@@ -12,12 +12,12 @@ namespace WcfFynbusService.Entity_Framework
     using System;
     using System.Collections.Generic;
     
-    public partial class WagonDetails
+    public partial class WagonDetail
     {
-        public WagonDetails()
+        public WagonDetail()
         {
             this.Offersform_SingleVehicle = new HashSet<Offersform_SingleVehicle>();
-            this.WagonDetails1 = new HashSet<WagonDetails>();
+            this.GuaranteeOf = new HashSet<WagonDetail>();
         }
     
         public int ID { get; set; }
@@ -31,10 +31,10 @@ namespace WcfFynbusService.Entity_Framework
         public Nullable<int> HomeWagon { get; set; }
         public int OwnedBy { get; set; }
     
-        public virtual HomeWagon HomeWagon1 { get; set; }
+        public virtual HomeWagon ObjHomeWagon { get; set; }
         public virtual ICollection<Offersform_SingleVehicle> Offersform_SingleVehicle { get; set; }
-        public virtual Users Users { get; set; }
-        public virtual ICollection<WagonDetails> WagonDetails1 { get; set; }
-        public virtual WagonDetails WagonDetails2 { get; set; }
+        public virtual User User { get; set; }
+        public virtual ICollection<WagonDetail> GuaranteeOf { get; set; }
+        public virtual WagonDetail GuaranteeBy { get; set; }
     }
 }

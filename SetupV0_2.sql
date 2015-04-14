@@ -121,9 +121,9 @@ Municipality nvarchar(200) not null,
 create table Price
 (
 ID int identity(0,1) primary key not null,
-Weekdays int unique not null, --FK_PricePlan (Mon-Fri 6:00 to 18:00)
-WeekdaysEvening int unique not null, --FK_PricePlan (Mon-Fri 18:00 to 6:00)
-WeekendersHelligdage int unique not null, --FK_PricePlan (Weekends and holidays)
+Weekdays int not null, --FK_PricePlan (Mon-Fri 6:00 to 18:00)
+WeekdaysEvening int not null, --FK_PricePlan (Mon-Fri 18:00 to 6:00)
+WeekendersHelligdage int not null, --FK_PricePlan (Weekends and holidays)
 StairMachine decimal(6,2) 
 );
 
@@ -138,7 +138,7 @@ HourlyDdownTime decimal(6,2) not null
 create table Users
 (
 ID int identity(0,1) primary key not null,
-Account nvarchar(50), --INDEX
+Account nvarchar(50) unique, --INDEX
 [Password] nvarchar(50),
 Email nvarchar(80),
 UsersAccessLevels tinyint

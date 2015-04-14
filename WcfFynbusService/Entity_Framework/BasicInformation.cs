@@ -25,7 +25,7 @@ namespace WcfFynbusService.Entity_Framework
         public string NameSecondary { get; set; }
         public int OwnedBy { get; set; }
     
-        public virtual Users Users { get; set; }
+        public virtual User ObjUser { get; set; }
         public virtual ICollection<Offersform_SingleVehicle> Offersform_SingleVehicle { get; set; }
     }
 }

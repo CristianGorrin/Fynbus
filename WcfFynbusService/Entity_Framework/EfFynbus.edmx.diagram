@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="2ac3836b27ea40c3b584f3e2e7dcdaa5" Name="Diagram1" ZoomLevel="97">
+        <EntityTypeShape EntityType="FynbusModel.BasicInformation" Width="1.5" PointX="3" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FynbusModel.HomeWagon" Width="1.5" PointX="3.75" PointY="11.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="FynbusModel.Offersform_SingleVehicle" Width="1.5" PointX="5.25" PointY="5.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="FynbusModel.Price" Width="1.5" PointX="3" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FynbusModel.PricePlan" Width="1.5" PointX="0.75" PointY="2.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="FynbusModel.Token" Width="1.5" PointX="3" PointY="7.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="FynbusModel.User" Width="1.5" PointX="0.75" PointY="5.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="FynbusModel.WagonDetail" Width="1.5" PointX="6" PointY="9.375" IsExpanded="true" />
+        <AssociationConnector Association="FynbusModel.FK_OwnedBy_Users_ID" ManuallyRouted="false" />
+        <AssociationConnector Association="FynbusModel.OffersformSingleVehicle_FK_BasicInformation" ManuallyRouted="false" />
+        <AssociationConnector Association="FynbusModel.WagonDetails_FK_HomeWagon" ManuallyRouted="false" />
+        <AssociationConnector Association="FynbusModel.OffersformSingleVehicle_FK_Price" ManuallyRouted="false" />
+        <AssociationConnector Association="FynbusModel.OffersformSingleVehicle_FK_WagonDetails" ManuallyRouted="false" />
+        <AssociationConnector Association="FynbusModel.OwnedBy_FK_Users_ID" ManuallyRouted="false" />
+        <AssociationConnector Association="FynbusModel.Weekdays_FK_PricePlan" ManuallyRouted="false" />
+        <AssociationConnector Association="FynbusModel.WeekdaysEvening_FK_PricePlan" ManuallyRouted="false" />
+        <AssociationConnector Association="FynbusModel.WeekendersHelligdage_FK_PricePlan" ManuallyRouted="false" />
+        <AssociationConnector Association="FynbusModel.UsersID_FK_Users_ID" ManuallyRouted="false" />
+        <AssociationConnector Association="FynbusModel.FK_WagonDetails_OwnedBy_Users_ID" ManuallyRouted="false" />
+        <AssociationConnector Association="FynbusModel.WagonDetails_FK_WagonDetails" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

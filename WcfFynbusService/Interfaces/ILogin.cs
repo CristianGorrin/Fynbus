@@ -15,5 +15,11 @@ namespace WcfFynbusService.Interfaces
 
         [OperationContract]
         bool ValidateToken(string token, string acc);
+
+        [OperationContract]
+        bool CreatedAccount(string accName, string password, string email);
+
+        [OperationContract]
+        bool ValidateAccName(string name);
     }
 }

@@ -1,4 +1,4 @@
-﻿// T4 code generation is enabled for model 'C:\Users\CristianC\OneDrive\Visual Studio\C#\Fynbus\WcfFynbusService\Entity_Framework\Ef6Fynbus.edmx'. 
+﻿// T4 code generation is enabled for model 'C:\Users\CristianC\OneDrive\Visual Studio\C#\Fynbus\WcfFynbusService\Entity_Framework\EfFynbus.edmx'. 
 // To enable legacy code generation, change the value of the 'Code Generation Strategy' designer
 // property to 'Legacy ObjectContext'. This property is available in the Properties Window when the model
 // is open in the designer.

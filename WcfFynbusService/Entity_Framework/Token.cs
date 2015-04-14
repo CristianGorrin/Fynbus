@@ -19,6 +19,6 @@ namespace WcfFynbusService.Entity_Framework
         public string TokenString { get; set; }
         public System.DateTime CreateDate { get; set; }
     
-        public virtual Users Users { get; set; }
+        public virtual User User { get; set; }
     }
 }

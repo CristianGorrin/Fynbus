@@ -21,9 +21,9 @@ namespace WcfFynbusService.Entity_Framework
         public string AdditionalInformation { get; set; }
         public int OwnedBy { get; set; }
     
-        public virtual BasicInformation BasicInformation1 { get; set; }
-        public virtual Price Price1 { get; set; }
-        public virtual WagonDetails WagonDetails1 { get; set; }
-        public virtual Users Users { get; set; }
+        public virtual BasicInformation ObjBasicInformation { get; set; }
+        public virtual Price Prices { get; set; }
+        public virtual WagonDetail WagonDetail { get; set; }
+        public virtual User User { get; set; }
     }
 }

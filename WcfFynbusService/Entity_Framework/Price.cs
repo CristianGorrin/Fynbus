@@ -26,8 +26,8 @@ namespace WcfFynbusService.Entity_Framework
         public Nullable<decimal> StairMachine { get; set; }
     
         public virtual ICollection<Offersform_SingleVehicle> Offersform_SingleVehicle { get; set; }
-        public virtual PricePlan PricePlan { get; set; }
-        public virtual PricePlan PricePlan1 { get; set; }
-        public virtual PricePlan PricePlan2 { get; set; }
+        public virtual PricePlan ObjWeekdays { get; set; }
+        public virtual PricePlan ObjWeekdaysEvening { get; set; }
+        public virtual PricePlan ObjWeekendersHelligdage { get; set; }
     }
 }

@@ -12,14 +12,14 @@ namespace WcfFynbusService.Entity_Framework
     using System;
     using System.Collections.Generic;
     
-    public partial class Users
+    public partial class User
     {
-        public Users()
+        public User()
         {
-            this.BasicInformation = new HashSet<BasicInformation>();
+            this.BasicInformations = new HashSet<BasicInformation>();
             this.Offersform_SingleVehicle = new HashSet<Offersform_SingleVehicle>();
-            this.Token = new HashSet<Token>();
-            this.WagonDetails = new HashSet<WagonDetails>();
+            this.Tokens = new HashSet<Token>();
+            this.WagonDetails = new HashSet<WagonDetail>();
         }
     
         public int ID { get; set; }
@@ -28,9 +28,9 @@ namespace WcfFynbusService.Entity_Framework
         public string Email { get; set; }
         public Nullable<byte> UsersAccessLevels { get; set; }
     
-        public virtual ICollection<BasicInformation> BasicInformation { get; set; }
+        public virtual ICollection<BasicInformation> BasicInformations { get; set; }
         public virtual ICollection<Offersform_SingleVehicle> Offersform_SingleVehicle { get; set; }
-        public virtual ICollection<Token> Token { get; set; }
-        public virtual ICollection<WagonDetails> WagonDetails { get; set; }
+        public virtual ICollection<Token> Tokens { get; set; }
+        public virtual ICollection<WagonDetail> WagonDetails { get; set; }
     }
 }

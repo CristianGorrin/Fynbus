@@ -13,10 +13,10 @@ namespace WcfFynbusService.Entity_Framework
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class Ef6FynbusContainer : DbContext
+    public partial class FynbusContext : DbContext
     {
-        public Ef6FynbusContainer()
-            : base("name=Ef6FynbusContainer")
+        public FynbusContext()
+            : base("name=FynbusContext")
         {
         }
     
@@ -25,13 +25,13 @@ namespace WcfFynbusService.Entity_Framework
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<BasicInformation> BasicInformation { get; set; }
-        public virtual DbSet<HomeWagon> HomeWagon { get; set; }
+        public virtual DbSet<BasicInformation> BasicInformations { get; set; }
+        public virtual DbSet<HomeWagon> HomeWagons { get; set; }
         public virtual DbSet<Offersform_SingleVehicle> Offersform_SingleVehicle { get; set; }
-        public virtual DbSet<Price> Price { get; set; }
-        public virtual DbSet<PricePlan> PricePlan { get; set; }
-        public virtual DbSet<Token> Token { get; set; }
-        public virtual DbSet<Users> Users { get; set; }
-        public virtual DbSet<WagonDetails> WagonDetails { get; set; }
+        public virtual DbSet<Price> Prices { get; set; }
+        public virtual DbSet<PricePlan> PricePlans { get; set; }
+        public virtual DbSet<Token> Tokens { get; set; }
+        public virtual DbSet<User> Users { get; set; }
+        public virtual DbSet<WagonDetail> WagonDetails { get; set; }
     }
 }
