@@ -21,6 +21,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Setup", "Setup", "{1682865D
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Dummy data", "Dummy data", "{B1FA160B-57B3-404D-BBEC-8ABBF8B093E1}"
+	ProjectSection(SolutionItems) = preProject
+		DataV0_2.sql = DataV0_2.sql
+	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Docs", "Docs", "{3D4073E9-4960-4A82-BDBA-1088DFD09B90}"
 	ProjectSection(SolutionItems) = preProject
