@@ -10,9 +10,9 @@ namespace WcfFynbusService.Entity_Framework.Implemented
     {
         private WcfFynbusService.Entity_Framework.FynbusContext dbContext;
 
-        public RdgWagonDetail(ref WcfFynbusService.Entity_Framework.FynbusContext dbContext) 
+        public RdgWagonDetail() 
         {
-            this.dbContext = dbContext;
+            this.dbContext = WcfFynbusService.Entity_Framework.Implemented.DbContextFynbus.dbContext;
         }
                         
         ~RdgWagonDetail()
@@ -21,8 +21,8 @@ namespace WcfFynbusService.Entity_Framework.Implemented
         }
 
 
-        public bool Add(int guarantee, string registrationLetters, int registrationNumbers, int phoneNumber,
-            byte vehicleType, byte? stairMachine, byte? highchairs, int homeWagon, int ownedBy)
+        public bool Add(int? guarantee, string registrationLetters, int registrationNumbers, int phoneNumber,
+            byte vehicleType, byte? stairMachine, byte? highchairs, int? homeWagon, int ownedBy)
         {
             try 
 	        {	        
@@ -102,8 +102,8 @@ namespace WcfFynbusService.Entity_Framework.Implemented
             }
         }
 
-        public int? FindId(int guarantee, string registrationLetters, int registrationNumbers,
-            int phoneNumber, byte vehicleType, byte? stairMachine, byte? highchairs, int homeWagon, int ownedBy)
+        public int? FindId(int? guarantee, string registrationLetters, int registrationNumbers,
+            int phoneNumber, byte vehicleType, byte? stairMachine, byte? highchairs, int? homeWagon, int ownedBy)
         {
             try
             {

@@ -20,7 +20,7 @@ namespace WcfFynbusService.Entity_Framework.Implemented
             this.dbContext.Dispose();
         }
 
-        public bool New(string streetName, short streetNumber, short zipCode, string city, string municipality)
+        public bool Add(string streetName, short streetNumber, short zipCode, string city, string municipality)
         {
             try
             {

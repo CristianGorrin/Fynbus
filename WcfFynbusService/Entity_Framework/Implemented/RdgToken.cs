@@ -105,6 +105,18 @@ namespace WcfFynbusService.Entity_Framework.Implemented
             }
         }
 
+        public Token FindBaseTokenSktring(string token)
+        {
+            try
+            {
+                return this.dbContext.Tokens.Single(x => x.TokenString == token);
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+        }
+
         public bool ValidateToken(string token, string acc)
         {
             try
