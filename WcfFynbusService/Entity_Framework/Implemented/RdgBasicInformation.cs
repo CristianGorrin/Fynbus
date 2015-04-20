@@ -12,7 +12,7 @@ namespace WcfFynbusService.Entity_Framework.Implemented
 
         public RdgBasicInformation()
         {
-            this.dbContext = WcfFynbusService.Entity_Framework.Implemented.DbContextFynbus.dbContext;
+            this.dbContext = new FynbusContext();
         }
 
         ~RdgBasicInformation()
@@ -88,11 +88,23 @@ namespace WcfFynbusService.Entity_Framework.Implemented
             }
         }
 
+        public BasicInformation FindByUsersId(int usersId)
+        { 
+            try
+            {
+                return this.dbContext.BasicInformations.Single(x => x.ObjUser.ID == usersId);
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+        }
+
         public int? FindID(string name, int cvr, string nameSecondary, out BasicInformation obj)
         {
             try
             {
-                obj = this.dbContext.BasicInformations.SingleOrDefault(
+                obj = this.dbContext.BasicInformations.First(
                     x => x.Name == name & x.CVR == cvr & x.NameSecondary == nameSecondary);
 
                 return obj.ID;

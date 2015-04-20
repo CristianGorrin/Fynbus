@@ -12,7 +12,7 @@ namespace WcfFynbusService.Entity_Framework.Implemented
 
         public RdgOffersform_SingleVehicle()
         {
-            this.dbContext = WcfFynbusService.Entity_Framework.Implemented.DbContextFynbus.dbContext;
+            this.dbContext = new FynbusContext();
         }
 
         ~RdgOffersform_SingleVehicle()
@@ -20,23 +20,26 @@ namespace WcfFynbusService.Entity_Framework.Implemented
             this.dbContext.Dispose();
         }
 
-        public bool Add(int basicInformation, int wagonDetails, int price, string additionalInformation, int ownedBy)
+        public bool Add(int basicInformation, int wagonDetails, int price, string additionalInformation, int ownedBy, out Offersform_SingleVehicle newObj)
         {
             try
             {
-                this.dbContext.Offersform_SingleVehicle.Add(new Offersform_SingleVehicle() 
-                { 
+                var obj = new Offersform_SingleVehicle()
+                {
                     BasicInformation = basicInformation,
                     WagonDetails = wagonDetails,
                     Price = price,
                     AdditionalInformation = additionalInformation,
                     OwnedBy = ownedBy
-                });
+                };
+                this.dbContext.Offersform_SingleVehicle.Add(obj);
 
                 this.dbContext.SaveChanges();
+                newObj = obj;
             }
             catch (Exception)
             {
+                newObj = null;
                 return false;
             }
 
@@ -106,5 +109,31 @@ namespace WcfFynbusService.Entity_Framework.Implemented
             }
         }
 
+        public void Save()
+        {
+            this.dbContext.SaveChanges();
+        }
+
+        public List<Offersform_SingleVehicle> GetListByUserID(int id)
+        {
+            var list = new List<Offersform_SingleVehicle>();
+            
+            try
+            {
+                foreach (var item in this.dbContext.Offersform_SingleVehicle.ToList())
+                {
+                    if (item.OwnedBy == id)
+                    {
+                        list.Add(item);
+                    }
+                }    
+
+                return list;
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+        }
     }
 }

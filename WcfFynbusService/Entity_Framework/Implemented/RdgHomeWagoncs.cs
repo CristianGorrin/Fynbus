@@ -12,7 +12,7 @@ namespace WcfFynbusService.Entity_Framework.Implemented
 
         public RdgHomeWagoncs()
         {
-            this.dbContext = WcfFynbusService.Entity_Framework.Implemented.DbContextFynbus.dbContext;
+            this.dbContext = new FynbusContext();
         }
 
         ~RdgHomeWagoncs()
@@ -20,7 +20,7 @@ namespace WcfFynbusService.Entity_Framework.Implemented
             this.dbContext.Dispose();
         }
 
-        public bool Add(string streetName, short streetNumber, short zipCode, string city, string municipality)
+        public bool Add(string streetName, short streetNumber, short zipCode, string city, string municipality, out HomeWagon newObj)
         {
             try
             {
@@ -30,13 +30,22 @@ namespace WcfFynbusService.Entity_Framework.Implemented
                 newHome.StreetNumber = streetNumber;
                 newHome.ZipCode = zipCode;
                 newHome.City = city;
-                newHome.Municipality = municipality;
+                if (municipality != null)
+                {
+                    newHome.Municipality = municipality;
+                }
+                else
+                {
+                    newHome.Municipality = string.Empty;
+                }
 
                 this.dbContext.HomeWagons.Add(newHome);
                 this.dbContext.SaveChanges();
+                newObj = newHome;
             }
             catch (Exception)
             {
+                newObj = null;
                 return false;
             }
 

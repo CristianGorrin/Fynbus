@@ -12,7 +12,7 @@ namespace WcfFynbusService.Entity_Framework.Implemented
 
         public RdgPricePlan()
         {
-            this.dbContext = WcfFynbusService.Entity_Framework.Implemented.DbContextFynbus.dbContext;
+            this.dbContext = new FynbusContext();
         }
 
         ~RdgPricePlan()
@@ -20,7 +20,7 @@ namespace WcfFynbusService.Entity_Framework.Implemented
             this.dbContext.Dispose();
         }
 
-        public bool Add(decimal setUpFee, decimal hourlyRate, decimal hourlyDdownTime)
+        public bool Add(decimal setUpFee, decimal hourlyRate, decimal hourlyDdownTime, out PricePlan newObj)
         {
             try 
 	        {	        
@@ -32,9 +32,11 @@ namespace WcfFynbusService.Entity_Framework.Implemented
 
                 this.dbContext.PricePlans.Add(obj);
                 this.dbContext.SaveChanges();
+                newObj = obj;
 	        }
 	        catch (Exception)
 	        {
+                newObj = null;
                 return false;
 	        }
 

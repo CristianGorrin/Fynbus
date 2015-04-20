@@ -16,6 +16,17 @@
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <WcfConfigValidationEnabled>True</WcfConfigValidationEnabled>
     <XsdCodeGenEnabled>True</XsdCodeGenEnabled>
+    <XsdCodeGenSerializerMode>XmlSerializer</XsdCodeGenSerializerMode>
+    <XsdCodeGenReuseTypesFlag>True</XsdCodeGenReuseTypesFlag>
+    <XsdCodeGenReuseTypesMode>All</XsdCodeGenReuseTypesMode>
+    <XsdCodeGenReferences />
+    <XsdCodeGenNamespaceMappings>%2a, WcfFynbusService.ContractTypes</XsdCodeGenNamespaceMappings>
+    <XsdCodeGenCollectionTypes>System.Array%3bSystem.Collections.Generic.Dictionary`2</XsdCodeGenCollectionTypes>
+    <XsdCodeGenExcludedTypes />
+    <XsdCodeGenImportXmlTypes>True</XsdCodeGenImportXmlTypes>
+    <XsdCodeGenGenerateSerializableTypes>True</XsdCodeGenGenerateSerializableTypes>
+    <XsdCodeGenGenerateInternalTypes>False</XsdCodeGenGenerateInternalTypes>
+    <XsdCodeGenEnableDataBinding>False</XsdCodeGenEnableDataBinding>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -54,6 +65,9 @@
     <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DataInterfaces\DataBasicInformation.cs" />
+    <Compile Include="DataInterfaces\DataOffersform_SingleVehicle.cs" />
+    <Compile Include="DataInterfaces\DataUser.cs" />
     <Compile Include="Entity_Framework\BasicInformation.cs">
       <DependentUpon>EfFynbus.tt</DependentUpon>
     </Compile>
@@ -75,7 +89,6 @@
     <Compile Include="Entity_Framework\HomeWagon.cs">
       <DependentUpon>EfFynbus.tt</DependentUpon>
     </Compile>
-    <Compile Include="Entity_Framework\Implemented\DbContextFynbus.cs" />
     <Compile Include="Entity_Framework\Implemented\RdgBasicInformation.cs" />
     <Compile Include="Entity_Framework\Implemented\RdgPrice.cs" />
     <Compile Include="Entity_Framework\Implemented\RdgPricePlan.cs" />
@@ -102,12 +115,15 @@
     <Compile Include="Entity_Framework\WagonDetail.cs">
       <DependentUpon>EfFynbus.tt</DependentUpon>
     </Compile>
+    <Compile Include="Interfaces\IAdmin.cs" />
+    <Compile Include="Interfaces\IInhous.cs" />
     <Compile Include="Interfaces\ILogin.cs" />
     <Compile Include="Interfaces\IOffersform_SingleVehicle.cs" />
+    <Compile Include="Services\Admin.cs" />
+    <Compile Include="Services\Inhous.cs" />
     <Compile Include="Services\Login.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\Offersform_SingleVehicle.cs" />
-    <Compile Include="Settigs\DB.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -135,15 +151,13 @@
       <Project>{ee24781a-ec58-4a66-9857-b2c67b78079c}</Project>
       <Name>Interface</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Lib\Lib.csproj">
-      <Project>{9eee30f8-6b20-4677-b2df-892433a1ef82}</Project>
-      <Name>Lib</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <VSToolsPath Condition="'$(VSToolsPath)' == '' and '$(VisualStudioVersion)' != '' and '$(VisualStudioVersion)' != '11.0'">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
@@ -155,7 +169,7 @@
     <VisualStudio>
       <FlavorProperties GUID="{3D9AD99F-2412-4246-B90B-4EAA41C64699}">
         <WcfProjectProperties>
-          <AutoStart>True</AutoStart>
+          <AutoStart>False</AutoStart>
         </WcfProjectProperties>
       </FlavorProperties>
     </VisualStudio>

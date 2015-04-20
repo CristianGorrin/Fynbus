@@ -12,7 +12,7 @@ namespace WcfFynbusService.Entity_Framework.Implemented
 
         public RdgUser()
         {
-            this.dbContext = WcfFynbusService.Entity_Framework.Implemented.DbContextFynbus.dbContext;
+            this.dbContext = new FynbusContext();
         }
                 
         ~RdgUser()
@@ -144,6 +144,25 @@ namespace WcfFynbusService.Entity_Framework.Implemented
             catch (Exception)
             {
                 return true;
+            }
+
+            return true;
+        }
+
+        public bool UpdatePassAndEmail(string acc, string oldPass, string newPass, string newEmail)
+        {
+            try
+            {
+                var obj = this.dbContext.Users.SingleOrDefault(x => x.Account == acc & x.Password == oldPass);
+
+                obj.Password = newPass;
+                obj.Email = newEmail;
+
+                this.dbContext.SaveChanges();
+            }
+            catch (Exception)
+            {
+                return false;
             }
 
             return true;

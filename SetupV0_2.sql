@@ -14,37 +14,37 @@ if object_id(N'[dbo].[FK_OwnedBy_Users_ID]', 'F') is not null
     alter table [dbo].[BasicInformation] drop constraint [FK_OwnedBy_Users_ID];
 go
 if object_id(N'[dbo].[FK_WagonDetails_OwnedBy_Users_ID]', 'F') is not null
-    alter table [dbo].[WagonDetails] DROP constraint [FK_WagonDetails_OwnedBy_Users_ID];
+    alter table [dbo].[WagonDetails] drop constraint [FK_WagonDetails_OwnedBy_Users_ID];
 go
 if object_id(N'[dbo].[FK_OffersformSingleVehicle_FK_BasicInformation]', 'F') is not null
-    alter table [dbo].[Offersform_SingleVehicle] DROP constraint [FK_OffersformSingleVehicle_FK_BasicInformation];
+    alter table [dbo].[Offersform_SingleVehicle] drop constraint [FK_OffersformSingleVehicle_FK_BasicInformation];
 go
 if object_id(N'[dbo].[FK_OffersformSingleVehicle_FK_Price]', 'F') is not null
-    alter table [dbo].[Offersform_SingleVehicle] DROP constraint [FK_OffersformSingleVehicle_FK_Price];
+    alter table [dbo].[Offersform_SingleVehicle] drop constraint [FK_OffersformSingleVehicle_FK_Price];
 go
 if object_id(N'[dbo].[FK_OffersformSingleVehicle_FK_WagonDetails]', 'F') is not null
-    alter table [dbo].[Offersform_SingleVehicle] DROP constraint [FK_OffersformSingleVehicle_FK_WagonDetails];
+    alter table [dbo].[Offersform_SingleVehicle] drop constraint [FK_OffersformSingleVehicle_FK_WagonDetails];
 go
 if object_id(N'[dbo].[FK_OwnedBy_FK_Users_ID]', 'F') is not null
-    alter table [dbo].[Offersform_SingleVehicle] DROP constraint [FK_OwnedBy_FK_Users_ID];
+    alter table [dbo].[Offersform_SingleVehicle] drop constraint [FK_OwnedBy_FK_Users_ID];
 go
 if object_id(N'[dbo].[FK_UsersID_FK_Users_ID]', 'F') is not null
-    alter table [dbo].[Token] DROP constraint [FK_UsersID_FK_Users_ID];
+    alter table [dbo].[Token] drop constraint [FK_UsersID_FK_Users_ID];
 go
 if object_id(N'[dbo].[FK_WagonDetails_FK_HomeWagon]', 'F') is not null
-    alter table [dbo].[WagonDetails] DROP constraint [FK_WagonDetails_FK_HomeWagon];
+    alter table [dbo].[WagonDetails] drop constraint [FK_WagonDetails_FK_HomeWagon];
 go
 if object_id(N'[dbo].[FK_WagonDetails_FK_WagonDetails]', 'F') is not null
-    alter table [dbo].[WagonDetails] DROP constraint [FK_WagonDetails_FK_WagonDetails];
+    alter table [dbo].[WagonDetails] drop constraint [FK_WagonDetails_FK_WagonDetails];
 go
 if object_id(N'[dbo].[FK_Weekdays_FK_PricePlan]', 'F') is not null
-    alter table [dbo].[Price] DROP constraint [FK_Weekdays_FK_PricePlan];
+    alter table [dbo].[Price] drop constraint [FK_Weekdays_FK_PricePlan];
 go
 if object_id(N'[dbo].[FK_WeekdaysEvening_FK_PricePlan]', 'F') is not null
-    alter table [dbo].[Price] DROP constraint [FK_WeekdaysEvening_FK_PricePlan];
+    alter table [dbo].[Price] drop constraint [FK_WeekdaysEvening_FK_PricePlan];
 go
 if object_id(N'[dbo].[FK_WeekendersHelligdage_FK_PricePlan]', 'F') is not null
-    alter table [dbo].[Price] DROP constraint [FK_WeekendersHelligdage_FK_PricePlan];
+    alter table [dbo].[Price] drop constraint [FK_WeekendersHelligdage_FK_PricePlan];
 go
 
 -- Dropping existing tables
@@ -91,7 +91,7 @@ ID int identity(0,1) primary key not null,
 Name nvarchar(100) not null,
 CVR int not null,
 NameSecondary nvarchar(100),
-OwnedBy int not null, --FK_Users_ID and INDEX_BasicInformation_OwnedBy
+OwnedBy int unique not null, --FK_Users_ID and INDEX_BasicInformation_OwnedBy
 );
 
 create table WagonDetails
@@ -102,8 +102,8 @@ RegistrationLetters nvarchar(2), --CH_WagonDetails_RegistrationLetters => 2 lett
 RegistrationNumbers int, --CH_WagonDetails_RegistrationNumbers => 5 digits
 PhoneNumber int not null,
 VehicleType tinyint not null, --CH_WagonDetails_VehicleType from 1 too 6 (6 is with a stair machine) 
-StairMachine tinyint, --CH_WagonDetails_VehicleType if is 6 (120 or 160 kg.)
-Highchairs tinyint, --CH_WagonDetails_Highchairs  0 => 0 - 13 kg; 1 => 9 - 18 kg; 2 => 9 - 36 kg; 3 => 15 - 36 kg, 4 => Integreret i sæde
+StairMachine tinyint not null, --CH_WagonDetails_VehicleType (120 or 160 kg. if 0 the none)
+Highchairs tinyint not null, --CH_WagonDetails_Highchairs  0 => 0 - 13 kg; 1 => 9 - 18 kg; 2 => 9 - 36 kg; 3 => 15 - 36 kg, 4 => Integreret i sæde
 HomeWagon int, --FK_HomeWagon
 OwnedBy int not null --FK_WagonDetails_OwnedBy_Users_ID
 );
@@ -138,10 +138,10 @@ HourlyDdownTime decimal(6,2) not null
 create table Users
 (
 ID int identity(0,1) primary key not null,
-Account nvarchar(50) unique, --INDEX
-[Password] nvarchar(50),
-Email nvarchar(80),
-UsersAccessLevels tinyint
+Account nvarchar(50) unique not null, --INDEX
+[Password] nvarchar(50) not null,
+Email nvarchar(80) not null,
+UsersAccessLevels tinyint not null
 );
 
 create table Token
@@ -217,4 +217,4 @@ alter table WagonDetails add constraint CH_WagonDetails_Highchairs
 check (Highchairs like '[0-4]');
 
 alter table WagonDetails add constraint CH_WagonDetails_StairMachine
-check (StairMachine = 120 or StairMachine = 160);
+check (StairMachine = 120 or StairMachine = 160 or StairMachine = 0);

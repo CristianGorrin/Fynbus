@@ -35,11 +35,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Docs", "Docs", "{3D4073E9-4
 		Docs\UdbudAf_FV3.pdf = Docs\UdbudAf_FV3.pdf
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mvc4FynbusWeb", "Mvc4FynbusWeb\Mvc4FynbusWeb.csproj", "{D2F0B966-84D6-4E68-8EFB-59151FA19E9B}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Interface", "Interface\Interface.csproj", "{EE24781A-EC58-4A66-9857-B2C67B78079C}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfFynbusServerManager", "WpfFynbusServerManager\WpfFynbusServerManager.csproj", "{D33FCDB0-5C82-428E-B9E8-F503FF73FF2A}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WcfFynbusService", "WcfFynbusService\WcfFynbusService.csproj", "{24A8DFEB-ADA3-4D0D-97A4-F8AF04E5ED26}"
 EndProject
@@ -47,6 +43,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".diagrams", ".diagrams", "{
 	ProjectSection(SolutionItems) = preProject
 		Diagrams\Architecture.vsdx = Diagrams\Architecture.vsdx
 	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HostServies", "HostServies\HostServies.csproj", "{6BA2CDFF-296F-4970-9E8F-7A74B15DA94B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MvcFynbus", "MvcFynbus\MvcFynbus.csproj", "{2184849E-04BE-4749-A98E-CE56B0ECCA59}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -58,22 +58,22 @@ Global
 		{9EEE30F8-6B20-4677-B2DF-892433A1EF82}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9EEE30F8-6B20-4677-B2DF-892433A1EF82}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9EEE30F8-6B20-4677-B2DF-892433A1EF82}.Release|Any CPU.Build.0 = Release|Any CPU
-		{D2F0B966-84D6-4E68-8EFB-59151FA19E9B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{D2F0B966-84D6-4E68-8EFB-59151FA19E9B}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{D2F0B966-84D6-4E68-8EFB-59151FA19E9B}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{D2F0B966-84D6-4E68-8EFB-59151FA19E9B}.Release|Any CPU.Build.0 = Release|Any CPU
 		{EE24781A-EC58-4A66-9857-B2C67B78079C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{EE24781A-EC58-4A66-9857-B2C67B78079C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EE24781A-EC58-4A66-9857-B2C67B78079C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EE24781A-EC58-4A66-9857-B2C67B78079C}.Release|Any CPU.Build.0 = Release|Any CPU
-		{D33FCDB0-5C82-428E-B9E8-F503FF73FF2A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{D33FCDB0-5C82-428E-B9E8-F503FF73FF2A}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{D33FCDB0-5C82-428E-B9E8-F503FF73FF2A}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{D33FCDB0-5C82-428E-B9E8-F503FF73FF2A}.Release|Any CPU.Build.0 = Release|Any CPU
 		{24A8DFEB-ADA3-4D0D-97A4-F8AF04E5ED26}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{24A8DFEB-ADA3-4D0D-97A4-F8AF04E5ED26}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{24A8DFEB-ADA3-4D0D-97A4-F8AF04E5ED26}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{24A8DFEB-ADA3-4D0D-97A4-F8AF04E5ED26}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6BA2CDFF-296F-4970-9E8F-7A74B15DA94B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6BA2CDFF-296F-4970-9E8F-7A74B15DA94B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6BA2CDFF-296F-4970-9E8F-7A74B15DA94B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6BA2CDFF-296F-4970-9E8F-7A74B15DA94B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2184849E-04BE-4749-A98E-CE56B0ECCA59}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2184849E-04BE-4749-A98E-CE56B0ECCA59}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2184849E-04BE-4749-A98E-CE56B0ECCA59}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2184849E-04BE-4749-A98E-CE56B0ECCA59}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -12,7 +12,7 @@ namespace WcfFynbusService.Entity_Framework.Implemented
 
         public RdgPrice()
         {
-            this.dbContext = WcfFynbusService.Entity_Framework.Implemented.DbContextFynbus.dbContext;
+            this.dbContext = new FynbusContext();
         }
 
         ~RdgPrice()
@@ -20,7 +20,7 @@ namespace WcfFynbusService.Entity_Framework.Implemented
             this.dbContext.Dispose();
         }
 
-        public bool Add(int weekdays, int weekdaysEvening, int weekendersHelligdage)
+        public bool Add(int weekdays, int weekdaysEvening, int weekendersHelligdage, out Price newObj)
         {
             try 
 	        {
@@ -32,9 +32,12 @@ namespace WcfFynbusService.Entity_Framework.Implemented
 
                 this.dbContext.Prices.Add(obj);
                 this.dbContext.SaveChanges();
+
+                newObj = obj;
 	        }
 	        catch (Exception)
 	        {
+                newObj = null;
                 return false;
 	        }
 
@@ -92,7 +95,7 @@ namespace WcfFynbusService.Entity_Framework.Implemented
         {
             try
             {
-                return this.dbContext.Prices.Single(x =>
+                return this.dbContext.Prices.First(x =>
                     x.Weekdays == weekdays & x.WeekdaysEvening == weekdaysEvening &
                     x.WeekendersHelligdage == weekendersHelligdage).ID;
             }
