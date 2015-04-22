@@ -11,6 +11,7 @@ namespace WcfFynbusService.Interfaces
     [ServiceContract]
     public interface IInhous
     {
-        string GetTest { [OperationContract] get; }
+        [OperationContract]
+        string GetOffers(string token, int index);
     }
 }

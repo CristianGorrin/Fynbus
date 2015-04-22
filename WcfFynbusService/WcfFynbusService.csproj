@@ -68,6 +68,7 @@
     <Compile Include="DataInterfaces\DataBasicInformation.cs" />
     <Compile Include="DataInterfaces\DataOffersform_SingleVehicle.cs" />
     <Compile Include="DataInterfaces\DataUser.cs" />
+    <Compile Include="DataInterfaces\DgInfo.cs" />
     <Compile Include="Entity_Framework\BasicInformation.cs">
       <DependentUpon>EfFynbus.tt</DependentUpon>
     </Compile>
@@ -115,11 +116,9 @@
     <Compile Include="Entity_Framework\WagonDetail.cs">
       <DependentUpon>EfFynbus.tt</DependentUpon>
     </Compile>
-    <Compile Include="Interfaces\IAdmin.cs" />
-    <Compile Include="Interfaces\IInhous.cs" />
     <Compile Include="Interfaces\ILogin.cs" />
+    <Compile Include="Interfaces\IInhous.cs" />
     <Compile Include="Interfaces\IOffersform_SingleVehicle.cs" />
-    <Compile Include="Services\Admin.cs" />
     <Compile Include="Services\Inhous.cs" />
     <Compile Include="Services\Login.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

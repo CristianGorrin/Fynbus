@@ -43,4 +43,35 @@ namespace Interface.EF_DataInterfaces
         decimal StairMachine { get; }
         string AdditionalInformation { get; }
     }
+
+    public interface IDgInfo
+    {
+        int ID { get; }
+        string Name { get; }
+        int CVR { get; }
+        string AltName { get; }
+        int? GuaranteeID { get; }
+        string Registration { get; }
+        int PhoneNumber { get; }
+        byte? VehicleType { get; }
+        byte? StairMachineType { get; }
+        byte? Highchairs { get; }
+        string StreetName { get; }
+        short StreetNumber { get; }
+        short ZipCode { get; }
+        string City { get; }
+        string Municipality { get; }
+        // { set up fee, hourly fee, hourly down time } for Weekdays, WeekdaysEvening and WeekendersHelligdage
+        decimal WeekdaysSetup { get; }
+        decimal WeekdaysHourly { get; }
+        decimal WeekdaysDown { get; }
+        decimal WeekdaysEveningSetup { get; }
+        decimal WeekdaysEveningHourly { get; }
+        decimal WeekdaysEveningDown { get; }
+        decimal WeekendersHelligdageSetup { get; }
+        decimal WeekendersHelligdageHourly { get; }
+        decimal WeekendersHelligdageDown { get; }
+        decimal? StairMachine { get; }
+        string AdditionalInformation { get; }
+    }
 }

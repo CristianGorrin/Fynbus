@@ -17,14 +17,12 @@ namespace HostServies
             var login = new ServiceHost(typeof(WcfFynbusService.Services.Login));
             var offersform = new ServiceHost(typeof(WcfFynbusService.Services.Offersform_SingleVehicle));
             var inhous = new ServiceHost(typeof(WcfFynbusService.Services.Inhous));
-            var admin = new ServiceHost(typeof(WcfFynbusService.Services.Admin));
             Console.WriteLine("[Done]");
 
             Console.Write("[" + DateTime.Now.ToString() + "] Starter services... ");
             login.Open();
             offersform.Open();
             inhous.Open();
-            admin.Open();
             Console.WriteLine("[Done]");
 
             Console.WriteLine("Tryk på enter for at lukke");
@@ -36,7 +34,6 @@ namespace HostServies
             Console.Write(".");
             inhous.Close();
             Console.Write(".");
-            admin.Close();
         }
     }
 }
