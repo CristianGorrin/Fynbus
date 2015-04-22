@@ -1,0 +1,34 @@
+﻿@if (Request.IsAuthenticated) {
+    <text>
+        Hello, @Html.ActionLink(User.Identity.Name, "Manage", "Account", routeValues: null, htmlAttributes: new { @class = "username", title = "Manage" })!
+        @using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm" })) {
+            @Html.AntiForgeryToken()
+            <a href="javascript:document.getElementById('logoutForm').submit()">Log off</a>
+        }
+        @Html.ActionLink("Vogne", "Vehicles", "Home")
+        @Html.ActionLink("Tilbud", "Offers", "Home")
+    </text>
+} else {
+    <p>Not logged in</p>
+    <span @(
+        (
+            ViewContext.RouteData.Values["Action"].ToString() == "Vehicles" ||
+            ViewContext.RouteData.Values["Action"].ToString() == "AddVehicle" ||
+            ViewContext.RouteData.Values["Action"].ToString() == "EditVehicle"
+        ) ? "class=active" : ""
+    )>
+        @Html.ActionLink("Vogne", "Vehicles")
+    </span>
+    <span @(
+        (
+            ViewContext.RouteData.Values["Action"].ToString() == "Offers" ||
+            ViewContext.RouteData.Values["Action"].ToString() == "AddOffer"
+        ) ? "class=active" : ""
+    )>
+        @Html.ActionLink("Tilbud", "Offers")
+    </span>
+    @*<ul>
+        <li>@Html.ActionLink("Register", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink" })</li>
+        <li>@Html.ActionLink("Log in", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>
+    </ul>*@
+}
