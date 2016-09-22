@@ -1,3 +1,0 @@
-﻿USE [fynbus]
-GO
-
